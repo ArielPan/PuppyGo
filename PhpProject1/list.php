@@ -32,19 +32,45 @@
 						<p>This map will show all the dog-friendly beaches in Victoria, as well as your current location. Feel free to click on the beach you would like to explore.</p>
 					</header>
                                    
-
+                                        
                                     <form>
                                         <?php
                                                 require_once 'databaseConnect.php';
-                                                $sql = "SELECT * FROM beachinfo";
+                                                $sql = "SELECT * FROM beachinfo where no%2=1";
+                                                $sql1 = "select * from beachinfo where no%2=0";
                                                 $result = mysqli_query($dbc, $sql);
-                                            while($row = mysqli_fetch_array($result))
+                                                $result1 = mysqli_query($dbc, $sql1);
+                                                 //heelo
+                                                
+                                              //   for ($row = mysqli_fetch_array($result) && $row['no']=1; $row['no']<42; $row['no']++)
+                                           while(($row = mysqli_fetch_array($result)) &&  ($row1 = mysqli_fetch_array($result1)))
                                             {
-                                            echo '<div class = "image">
-                                        <a href = "decription.php?no='.$row['no'].'"> <img style="width: 470px; height: 200px"; src="'.$row['img_url'].'" width="1600" height="60" />
-                                        <h2><a href = "desc.php?no='.$row['no'].'" > '.$row['name'].'</a></h2>
-                                        <p>'.$row['address'].'</p>
-                                        </div>';
+                                               
+                                                echo "<table>";
+                                              
+                                                
+                                                echo "<tr>";
+                                                echo "<td>";
+                                                echo '<a href = "decription.php?no='.$row['no'].'"> ';
+                                                echo ' <img style="width: 470px; height: 200px"; src="'.$row['img_url'].'" width="1600" height="60" />';
+                                                echo '<head><b><a href = "desc.php?no='.$row['no'].'" > '.$row['name'].'</a></b></head>';
+                                                echo '<p><i>'.$row['address'].'</i></p>';
+                                                echo "</td>";
+                                                
+                                                  echo "<td>";
+                                                  echo '<a href = "decription.php?no='.$row1['no'].'"> ';
+                                                  echo ' <img style="width: 470px; height: 200px"; src="'.$row1['img_url'].'" width="1600" height="60" />';
+                                                  echo '<head><b><a href = "desc.php?no='.$row1['no'].'" > '.$row1['name'].'</a></b></head>';
+                                                  echo '<p><i>'.$row1['address'].'</i></p>';
+                                                  echo "</td>";
+                                                 echo "</tr>";
+                                               
+                                                echo "</table>";
+                                        //    echo '<div class = "image">
+                                       // <a href = "decription.php?no='.$row['no'].'"> <img style="width: 470px; height: 200px"; src="'.$row['img_url'].'" width="1600" height="60" />
+                                       // <head><b><a href = "desc.php?no='.$row['no'].'" > '.$row['name'].'</a></b></head>
+                                      //  <p><i>'.$row['address'].'</i></p>
+                                      //  </div>';
                                             }
                                         ?>
                                     </form>   
