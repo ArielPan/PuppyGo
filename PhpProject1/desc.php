@@ -31,10 +31,13 @@
                         $select = $_GET["no"];
                         $sql1 = "SELECT * FROM beachinfo WHERE no = $select";
                         $result1 = mysqli_query($dbc, $sql1);
+                        
                         //Data Extrated
                          while($row = mysqli_fetch_array($result1))
-                        {  $uniform = "row 50% uniform";
-                           $u = "6u";
+                        {  $desc = $row["desc"];
+                           $leashinfo = $row["on/offleashinfo"];
+                           $uniform = "row 50% uniform";
+                           $u = "10u";
                            $fit = "image fit";
                            $img = $row["img_url"];
                            echo '<h2><a href = "desc.php?no='.$row['no'].'" > '.$row['name'].'</a></h2>';
@@ -47,7 +50,9 @@
             ?>
        </section>
         <section id="main" class="wrapper">
-            <div class="container">                          
+            <div class="container"> 
+                <h2><?php echo "<strong >Description:</strong>" .$desc."</br>";?> </h2>
+                <h3><?php echo $leashinfo?> </h3>
                         <?php   
                         $select = $_GET["no"];
                         $sql = "SELECT * FROM beachinfo WHERE no = $select";
@@ -193,7 +198,7 @@
         <div class="container">
 
             <header class="major">
-                <h2>How is weaher in Barwon Heads ? </h2>
+                <h2>How is weather in Barwon Heads ? </h2>
 
             </header>
             <div class="row 150%">
@@ -208,9 +213,7 @@
                     while($row = mysqli_fetch_array($result)) {
                         $suburb = $row["zone"];
                     }
-
 // api
-
                     $api_url = "http://api.openweathermap.org/data/2.5/weather?q=" . $suburb . "mode=json&units=metric&appid=6552ec0a723e855d8c6eb7618a0706aa";
                     $api_url = str_replace(" ", "%20", $api_url);
                     $weather_data = file_get_contents($api_url);
@@ -272,9 +275,7 @@
                     <section class="box">
                             <header class="major">
                                 
-                            <font size=20><?php  echo $user_temp."℃"?></font>;
-                                
-                          
+                            <font size=20><?php  echo $user_temp."℃"?></font>; 
                         <h3>Temperature</h3>
                         <p>It's a bit cold at the beach side, be careful :)  </p>
                     </section>

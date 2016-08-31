@@ -41,7 +41,7 @@
                                             while($row = mysqli_fetch_array($result))
                                             {
                                             echo '<div class = "image">
-                                        <a href = "desc.php?no='.$row['no'].'"> <img style="width: 470px; height: 200px"; src="'.$row['img_url'].'" width="1600" height="60" />
+                                        <a href = "decription.php?no='.$row['no'].'"> <img style="width: 470px; height: 200px"; src="'.$row['img_url'].'" width="1600" height="60" />
                                         <h2><a href = "desc.php?no='.$row['no'].'" > '.$row['name'].'</a></h2>
                                         <p>'.$row['address'].'</p>
                                         </div>';
