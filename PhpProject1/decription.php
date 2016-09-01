@@ -1,14 +1,13 @@
 <html lang="en">
-
+<meta charset="UTF-8">
     <title>Description</title>
     <link rel="stylesheet" href="css/list-table.css" />
-          <head>
-		<meta charset="UTF-8">
-		<title>Beach List</title>
+    <head>
+        <title>Description</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<script src="js/jquery.min.js"></script>
+                <script src="js/jquery-3.1.0.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
@@ -16,8 +15,9 @@
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
+                        
 		</noscript>
-	</head>
+    </head>
     <body>
     <?php
         include 'header.php';
@@ -39,6 +39,7 @@
                            $uniform = "row 50% uniform";
                            $u = "10u";
                            $fit = "image fit";
+                           $map_url = $row["map_link"];
                            $img = $row["img_url"];
                            echo '<h2><a href = "desc.php?no='.$row['no'].'" > '.$row['name'].'</a></h2>';
                            echo '<div class="'.$u.'">';
@@ -51,6 +52,7 @@
             <div class="container"> 
                 <h2><?php echo $leashinfo?> </h2>
                 <h3><?php echo "<strong >Description:</strong>" .$desc."</br>";?> </h3>
+                <iframe src=<?php echo $map_url; ?>  width="100%"  frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
             <div class="container">
                     <?php   
@@ -198,9 +200,10 @@
         <div class="container">
 
             <header class="major">
-                <h2>How is weather in Barwon Heads ? </h2>
+                <h2>How is weather Today? </h2>
 
             </header>
+            <section>
             <div class="row 150%">
                 <div class="4u 12u$(medium)">
                     <?php
@@ -263,33 +266,25 @@
                     echo"<strong> Sunrise: </strong>" . $user_sunrise . "<br />";
                     echo"<strong> Sunset: </strong>" . $user_sunset . "<br />";
                     ?>
+                    <div class="row">
+                    <div class="6u 12u$(medium)">
                     <section class="box">
-                        <img src="images/<?php echo $user_conditions?>.jpg " width="100%">
+                        <img src="images/weather/<?php echo $user_conditions?>.png " width="100%">
                         <h3><?php
-                        echo "<strong >Conditoins:</strong>" .$user_conditions."</br>";
+                        echo $user_conditions;
                         ?></h3>
 
                     </section>
                 </div>
-                <div class="4u 12u$(medium)">
-                    <section class="box">
-                            <header class="major">
-                                
-                            <font size=20><?php  echo $user_temp."℃"?></font>; 
+                <div class="6u 12u$(medium)">
+                    <section class="box">  
                         <h3>Temperature</h3>
-                        <p>It's a bit cold at the beach side, be careful :)  </p>
+                            <font size=20><?php  echo $user_temp."℃"?></font>;   
                     </section>
                 </div>
-                <div class="4u$ 12u$(medium)">
-                    <section class="box">
-                        <img src="images/details.PNG" height="150" width="170">
-                        <h3>Details</h3>
-                        <p>It seems that it is good to stay home with your puppy :)</p>
-                    </section>
-                </div>
-
             </div>
         </div>
+      </div>
          </section>
          
          <section id="main" class="wrapper">
@@ -307,7 +302,7 @@
                         if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
                         }
-                        $sql = "SELECT surfing, sand_volleyball, frisbee, swimming, sand_soccer FROM beachinfo WHERE no = $select";
+                        $sql = "SELECT surfing, sand_volleyball, frisbee, swimming, sand_soccer FROM sports WHERE no = $select";
                         $result = $conn->query($sql); 
                        while($row = $result->fetch_assoc())
                      {

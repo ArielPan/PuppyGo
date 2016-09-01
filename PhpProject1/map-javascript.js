@@ -61,11 +61,12 @@ function initMap() {
 //    }
 //  });
 //}
-function createMarker(lng, lat, name, address) {
+function createMarker(no, lng, lat, name, address) {
 //  var placeLoc = place.geometry.location;
 var placeLoc = {lat: lng, lng: lat};
+var number = no;
   var contentString = '<div id="content">'+
-      '<a href="desc.php?no=1">More Info</a> '+
+      '<a href="desc.php?no='+ number +'">More Info</a> '+
       '</div>';
   var content1 = '<div id="content">' + '</div>';
   var marker = 
@@ -116,11 +117,12 @@ function showBeach(){
         var loc = JSON.parse(data);
         for(var i in loc){
             var rows = loc[i];
-            var name = rows[0];
-            var address = rows[1];
-            var lng = rows[2];
-            var lat = rows[3];
-        createMarker(parseFloat(lat), parseFloat(lng), name, address);    
+            var no = rows[0];
+            var name = rows[1];
+            var address = rows[2];
+            var lng = rows[3];
+            var lat = rows[4];
+        createMarker(no, parseFloat(lat), parseFloat(lng), name, address);    
     }
     }   
     });
@@ -128,7 +130,7 @@ function showBeach(){
     else
     {
         beachList();
-    }   
+    }    
  })
     
 }
@@ -143,11 +145,12 @@ function beachList(){
         var loc = JSON.parse(data);
         for(var i in loc){
             var rows = loc[i];
-            var name = rows[0];
-            var address = rows[1];
-            var lng = rows[2];
-            var lat = rows[3];
-        createMarker(parseFloat(lat), parseFloat(lng), name, address);      
+            var no = rows[0];
+            var name = rows[1];
+            var address = rows[2];
+            var lng = rows[3];
+            var lat = rows[4];
+        createMarker(no, parseFloat(lat), parseFloat(lng), name, address);      
     }
     }   
     });

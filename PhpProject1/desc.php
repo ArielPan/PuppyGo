@@ -1,7 +1,6 @@
 <html lang="en">
 
     <title>Description</title>
-    <link rel="stylesheet" href="css/list-table.css" />
           <head>
 		<meta charset="UTF-8">
 		<title>Beach List</title>
@@ -16,6 +15,7 @@
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
+                        <link rel="stylesheet" href="css/list-table.css" />
 		</noscript>
 	</head>
     <body>
@@ -40,7 +40,7 @@
                            $u = "10u";
                            $fit = "image fit";
                            $img = $row["img_url"];
-                           echo '<h2><a href = "desc.php?no='.$row['no'].'" > '.$row['name'].'</a></h2>';
+                           echo '<h2>'.$row['name'].'</a></h2>';
                            echo '<div class="'.$u.'">';
                            echo '<span class="'.$fit.'">';
                            echo '<img src="'.$img.'" />';
@@ -48,6 +48,7 @@
                            echo '</div>';
                         }
             ?>
+        </div>
        </section>
         <section id="main" class="wrapper">
             <div class="container"> 
