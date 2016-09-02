@@ -54,6 +54,7 @@ and open the template in the editor.
 								<li>&copy; Skylark. All rights reserved.</li>
 								<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
 								<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+                                                                <li>Icons: <a href="http://www.flaticon.com/authors/freepik" title="Freepik">www.flaticon.com</a></li>
 							</ul>
 						</div>
 						<div class="4u$ 12u$(medium)">

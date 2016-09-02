@@ -12,6 +12,8 @@ function initMap() {
   var s = document.createElement("script");
   map = new google.maps.Map(document.getElementById('googleMap'), {
     center: pyrmont,
+    scrollwheel: false,
+    scaleControl: false,
     zoom: 9
   });
   // Create the DIV to hold the control and call the CenterControl() constructor
@@ -22,7 +24,7 @@ function initMap() {
   centerControlDiv.index = 1;
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
-//  beachList();
+    beachList();
     showBeach()
   infowindow = new google.maps.InfoWindow();
 //  var request = {
@@ -66,7 +68,7 @@ function createMarker(no, lng, lat, name, address) {
 var placeLoc = {lat: lng, lng: lat};
 var number = no;
   var contentString = '<div id="content">'+
-      '<a href="desc.php?no='+ number +'">More Info</a> '+
+      '<a href="description.php?no='+ number +'">More Info</a> '+
       '</div>';
   var content1 = '<div id="content">' + '</div>';
   var marker = 
@@ -89,7 +91,7 @@ function showBeach(){
     $('#btnSearch').click(function(){
         deleteMarkers();
     var areaSelect = $('#zone').val();
-    var zoneName = "Phillip Island";
+    var zoneName = "";
     if (areaSelect !== "0")
     {
         switch(areaSelect){
