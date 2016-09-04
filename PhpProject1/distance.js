@@ -30,8 +30,8 @@ function successFunction(position)
                 },  
                 success: function(data) {
 //                    alert('Your latitude is :'+cLatitude+' and longitude is '+cLongitude);
-//                      alert(data);
-                      document.getElementById("distance").value = data;
+//                    alert(data);
+                      document.getElementById("distance").innerHTML = "Distance: " + data;
                 }
             });
     

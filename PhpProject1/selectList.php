@@ -21,7 +21,7 @@
 	<body>
        <?php
         include 'header.php';
-    ?>  
+       ?>  
 
 		<!-- Main -->
 			<section id="main" class="wrapper">
@@ -50,7 +50,6 @@
 //                                            test($row['no']);
                                             session_start();
                                             $_SESSION['no'] = $row['no'];
-//                                            require_once 'test.php';
                                             $name = "distance";
                                             
                                             echo '<div class = "image">
@@ -58,7 +57,7 @@
                                             <h2><a href = "desc.php?no='.$row['no'].'" > '.$row['name'].'</a></h2>
                                             <p>'.$row['address'].'</p>
                                             </div>';
-                                            echo '<input type="text" id="'.$name.'">';
+                                            echo '<p class="wordText" id="'.$name.'">distance</p>';
                                             session_abort();   
                                         }
                                          ?>
