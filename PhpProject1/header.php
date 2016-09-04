@@ -16,7 +16,7 @@ and open the template in the editor.
     </head>
     <body>
         <header id="header">
-				<h1><a href="index.php">Team Skylark</a></h1>
+				<h1><a href="index.php">PuppyGo</a></h1>
 				<nav id="nav">
 					<ul>
 						<li><a href="index.php">Home</a></li>

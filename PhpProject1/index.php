@@ -10,6 +10,7 @@
                 <script src="js/jquery-3.1.0.min.js"></script>
                 <script src="filter.js"></script>
 		<script src="js/skel.min.js"></script>
+                <script src="distance.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
                 
@@ -48,7 +49,7 @@
           
         #filter dt  
         {  
-            height:14px;  
+            height:16px;  
             padding-bottom:4px;  
             font-weight:bold;  
             color:#FFFFFF;            
@@ -95,6 +96,8 @@
 		<!-- Banner -->
 			<section id="banner" >
                             <h2>Hi. Welcome to PuppyGo!.</h2>
+                            <p>Try to find the best dog-friendly beach for you! <br/> 
+                                Please choose your preference about the beach.</p>
                             <div id="filter">  
                                     <dl>  
                                         <dt>Suburb：</dt>  
@@ -115,7 +118,7 @@
                                         <dd><div><a>bbq</a></div></dd> 
                                     </dl>  
                                     <dl>  
-                                        <dt>Sports：</dt>   
+                                        <dt>Activity with your dog：</dt>   
                                         <dd><div><a>frisbee</a></div></dd>  
                                         <dd><div><a>sand_volleyball</a></div></dd>  
                                         <dd><div><a>sand_soccer</a></div></dd>  
@@ -123,17 +126,37 @@
                                         <dd><div><a>surfing</a></div></dd>   
                                     </dl>   
                                 </div>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <center>
+                            <div class="container">
+                            <div class="row 150%" >
+                                <div class="4u 12u$(medium)">
                                 <ul class="actions">
                                     <li>
-                                        <a class="button big" id="GO">GO</a>
+                                        <a class="button medium" id="GO">Go to your Beach</a>
                                     </li>
                                 </ul>
-				
+                                </div>
+                                <div class="4u 12u$(medium)">
 				<ul class="actions">
 					<li>
-						<a href="map.php" class="button big">Get started</a>
+						<a href="map.php" class="button medium">View Beach on Map</a>
 					</li>
 				</ul>
+                                    </div>
+                                    <div class="4u 12u$(medium)">
+                                <ul class="actions">
+					<li>
+						<a href="list.php" class="button medium">View All Beach List</a>
+					</li>
+				</ul>
+                                        </div>
+                            </div>
+                            </div>
+                            </center>
 			</section>
 
 		<!-- One -->
@@ -225,22 +248,7 @@
 								<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
 							</ul>
 						</div>
-						<div class="4u$ 12u$(medium)">
-							<ul class="icons">
-								<li>
-									<a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
-								</li>
-								<li>
-									<a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
-								</li>
-								<li>
-									<a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
-								</li>
-								<li>
-									<a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
-								</li>
-							</ul>
-						</div>
+
 					</div>
 				</div>
 			</footer>

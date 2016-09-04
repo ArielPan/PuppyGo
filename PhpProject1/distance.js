@@ -44,7 +44,7 @@ function successFunction(position)
 
 function errorFunction(position) 
 {
-    alert('Error!');
+    alert('Cannot get your current location! Please check your browser settings.');
 }
 //if (navigator.geolocation) {
 //        //Use method getCurrentPosition to get coordinates

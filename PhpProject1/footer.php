@@ -28,24 +28,6 @@ and open the template in the editor.
 								
 								</ul>
 							</section>
-							<section class="3u 6u$(medium) 12u$(small)">
-								<h3></h3>
-								<ul class="unstyled">
-								
-								</ul>
-							</section>
-							<section class="3u 6u(medium) 12u$(small)">
-								<h3></h3>
-								<ul class="unstyled">
-									
-								</ul>
-							</section>
-							<section class="3u$ 6u$(medium) 12u$(small)">
-								<h3></h3>
-								<ul class="unstyled">
-									
-								</ul>
-							</section>
 						</div>
 					</section>
 					<div class="row">
@@ -54,25 +36,9 @@ and open the template in the editor.
 								<li>&copy; Skylark. All rights reserved.</li>
 								<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
 								<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
-                                                                <li>Icons: <a href="http://www.flaticon.com/authors/freepik" title="Freepik">www.flaticon.com</a></li>
+                                                                <li>Icons: <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Flaticon</a></li>
 							</ul>
-						</div>
-						<div class="4u$ 12u$(medium)">
-							<ul class="icons">
-								<li>
-									<a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
-								</li>
-								<li>
-									<a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
-								</li>
-								<li>
-									<a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
-								</li>
-								<li>
-									<a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
-								</li>
-							</ul>
-						</div>
+						</div>						
 					</div>
 				</div>
 			</footer>

@@ -10,7 +10,7 @@
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
-                <script src="distance.js"></script>
+                <!--<script src="distance.js"></script>-->
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -34,17 +34,23 @@
                                     
                                         <form>
                                         <?php
-                                        $lat = $_COOKIE['num'];
+                                        $lat = $_COOKIE['clat'];
                                         $long = $_COOKIE['clong'];
                                         $test = $_GET["w1"];
-                                        $hello = explode(',',$test); 
-                                        $beachzone = $hello[0];
-                                        //echo $beachzone;
-                                        $facility = $hello[1];
-                                        //echo $facility;
-                                        $sports = $hello[2];
+                                        if($test == ""){
+                                            $sql = "SELECT * FROM beachinfo";
+                                        }
+                                        else{
+                                            $hello = explode(',',$test); 
+                                            $beachzone = $hello[0];
+                                            //echo $beachzone;
+                                            $facility = $hello[1];
+                                            //echo $facility;
+                                            $sports = $hello[2];
+                                            $sql = "SELECT * FROM beachinfo where zone= '$beachzone' AND $facility= 1 AND $sports =1";
+                                        }
                                         require_once 'databaseConnect.php';
-                                        $sql = "SELECT * FROM beachinfo where zone= '$beachzone' AND $facility= 1 AND $sports =1";
+//                                        $sql = "SELECT * FROM beachinfo where zone= '$beachzone' AND $facility= 1 AND $sports =1";
                                         $result = mysqli_query($dbc, $sql);
                                         //   for ($row = mysqli_fetch_array($result) && $row['no']=1; $row['no']<42; $row['no']++)
                                         while(($row = mysqli_fetch_array($result)))
@@ -55,10 +61,10 @@
                                             $dis = distance($lat, $long, $beachLat, $beachLong, "K");
                                             $distance = round($dis, 2);
                                             echo '<div class = "image">
-                                            <a href = "description.php?no='.$row['no'].'"> <img style="width: 600px; height: 300px"; src="'.$row['img_url'].'" width="1600" height="60" />
+                                            <a href = "description.php?no='.$row['no'].'"> <img style="width: 700px; height: 300px"; src="'.$row['img_url'].'" width="1600" height="60" />
                                             <h2><a href = "description.php?no='.$row['no'].'" > '.$row['name'].'</a></h2>
                                             <p>'.$row['address'].'</p>
-                                             <p>'.$distance.' Km</p>   
+                                             <p>Distance: '.$distance.' Km</p>   
                                             </div>';
 //                                            echo '<p class="wordText" id="'.$name.'">distance</p>';
 //                                            session_abort();   
