@@ -17,24 +17,28 @@ function successFunction(position)
 {
     var aa = position.coords.latitude;
     var bb = position.coords.longitude;
+    
+    document.cookie="clat"+"="+aa;
+    document.cookie="clong"+"="+bb;
+//    document.getElementById("testVar").value = aa;
 //    pass(cLatitude,cLongitude);
 //    alert('Your latitude is :'+cLatitude+' and longitude is '+cLongitude);
-    $.ajax({
-                url : "test.php",
-                type : "POST",
-                datatype: "json",
-//                async: false,
-                data : {
-                    aa : aa,  
-                    bb : bb
-                },  
-                success: function(data) {
-//                    alert('Your latitude is :'+cLatitude+' and longitude is '+cLongitude);
+//    $.ajax({
+//                url : "test.php",
+//                type : "POST",
+//                datatype: "json",
+////                async: false,
+//                data : {
+//                    aa : aa,  
+//                    bb : bb
+//                },  
+//                success: function(data) {
+////                    alert('Your latitude is :'+cLatitude+' and longitude is '+cLongitude);
 //                    alert(data);
-                      document.getElementById("distance").innerHTML = "Distance: " + data;
-                }
-            });
-    
+//                      document.getElementById("distance").innerHTML = "Distance: " + data;
+//                }
+//            });
+//    
 //       $.post('test.php',{aa:cLatitude, bb:cLongitude});
 }
 

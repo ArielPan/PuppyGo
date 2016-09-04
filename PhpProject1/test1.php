@@ -1,5 +1,6 @@
 <?php
-function cal($no){
+session_start();
+$no = $_SESSION['no'];
 $currentLat = isset($_POST['aa']) ? $_POST['aa'] : null;
 $currentLong = isset($_POST['bb']) ? $_POST['bb'] : null;
 $servername = "40.126.224.41";
@@ -22,14 +23,12 @@ if ($result->num_rows > 0) {
         $dis = distance($currentLat, $currentLong, $beachLat, $beachLong, "K");
         $distance = round($dis, 2);
         echo $distance;
-        }
+    }
   } else {
     echo "0 results";
     }
     $conn->close();
-}
-
-//    session_abort();
+    session_abort();
    function distance($lat1, $lon1, $lat2, $lon2, $unit) {
 
         $theta = $lon1 - $lon2;
