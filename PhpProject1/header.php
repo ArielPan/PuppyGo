@@ -21,7 +21,7 @@ and open the template in the editor.
 					<ul>
 						<li><a href="index.php">Home</a></li>
 						<li><a href="map.php">Map</a></li>
-                                                <li><a href="selectList.php">List</a></li>
+                                                <li><a href="list.php">List</a></li>
 					</ul>
 				</nav>
         </header>

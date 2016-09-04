@@ -8,15 +8,84 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
                 <script src="js/jquery-3.1.0.min.js"></script>
+                <script src="filter.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
+                
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-xlarge.css" />
-                        
+			<link rel="stylesheet" href="css/style-xlarge.css" />  
 		</noscript>
+                <style type="text/css">  
+        #filter  
+        {  
+            width:620px;  
+            height:auto;  
+            margin-left:auto;  
+            margin-right:auto;  
+            font-size:16px;  
+        }  
+          
+        #filter dl  
+        {  
+            padding:0;  
+            margin-top:0;  
+            margin-bottom:0;  
+            clear:both;  
+            padding:6px 0;          
+        }  
+          
+        #filter dt,dd  
+        {  
+            display:block;  
+            float:left;  
+            width:auto;  
+            padding:0;  
+            margin:4px 0;                     
+        }  
+          
+        #filter dt  
+        {  
+            height:14px;  
+            padding-bottom:4px;  
+            font-weight:bold;  
+            color:#FFFFFF;            
+        }  
+          
+        #filter dd  
+        {  
+            color:#005AA0;  
+            margin-right:8px;  
+        }  
+          
+        #filter a
+        {  
+            color:#FFFFFF;
+            cursor:pointer;  
+        }  
+        
+        #filter facility
+      {
+          color:#FFFFFF;
+          cursor: pointer;
+      }
+        
+        .seling  
+        {  
+            background-color:#33CCFF;  
+            color:#FFFFFF;  
+        }  
+          
+        .seled  
+        {  
+            background-color:#33CCFF;  
+            color:#424242;  
+        }  
+       
+        
+    </style>  
 	</head>
 	<body class="landing">
             <?php
@@ -25,8 +94,41 @@
 
 		<!-- Banner -->
 			<section id="banner" >
-				<h2>Hi. Welcome to PuppyGo!.</h2>
-				<p>Try to find the best dog-friendly beach for you!</p>
+                            <h2>Hi. Welcome to PuppyGo!.</h2>
+                            <div id="filter">  
+                                    <dl>  
+                                        <dt>Suburb：</dt>  
+                                        <dd><div><a>Melbourne Suburbs</a></div></dd>  
+                                        <dd><div><a>Mornington Peninsula</a></div></dd>  
+                                        <dd><div><a>Philip Island</a></div></dd>  
+                                        <dd><div><a>Bellarine Peninsula</a></div></dd>
+                                        <dd><div><a>Apollo Bay</a></div></dd>
+                                    </dl>  
+                                    <dl>  
+                                        <dt>Facilities：</dt> 
+                                        <dd><div><a>toilet</a></div></dd>  
+                                        <dd><div><a>bin</a></div></dd>  
+                                        <dd><div><a>waterspot</a></div></dd>  
+                                        <dd><div><a>parking</a></div></dd>  
+                                        <dd><div><a>cafe</a></div></dd>  
+                                        <dd><div><a>clinic</a></div></dd>  
+                                        <dd><div><a>bbq</a></div></dd> 
+                                    </dl>  
+                                    <dl>  
+                                        <dt>Sports：</dt>   
+                                        <dd><div><a>frisbee</a></div></dd>  
+                                        <dd><div><a>sand_volleyball</a></div></dd>  
+                                        <dd><div><a>sand_soccer</a></div></dd>  
+                                        <dd><div><a>swimming</a></div></dd>  
+                                        <dd><div><a>surfing</a></div></dd>   
+                                    </dl>   
+                                </div>
+                                <ul class="actions">
+                                    <li>
+                                        <a class="button big" id="GO">GO</a>
+                                    </li>
+                                </ul>
+				
 				<ul class="actions">
 					<li>
 						<a href="map.php" class="button big">Get started</a>

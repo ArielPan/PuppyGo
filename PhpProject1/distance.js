@@ -2,7 +2,7 @@
 //var cLongitude;
 
 // Check for geolocation support
-$(document).ready(function() {
+$(document).ready(function() { 
     if (navigator.geolocation)
     {
         navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
@@ -15,24 +15,27 @@ $(document).ready(function() {
 
 function successFunction(position) 
 {
-    var cLatitude = 0;
-    var cLongitude = 0;
-    cLatitude = position.coords.latitude;
-    cLongitude = position.coords.longitude;
+    var aa = position.coords.latitude;
+    var bb = position.coords.longitude;
 //    pass(cLatitude,cLongitude);
 //    alert('Your latitude is :'+cLatitude+' and longitude is '+cLongitude);
     $.ajax({
-                url : "selectList.php",
+                url : "test.php",
                 type : "POST",
+                datatype: "json",
+//                async: false,
                 data : {
-                    aa: parseFloat(cLatitude),
-                    bb: cLongitude
-                }, 
-                success: function( data ) {
-                    console.log( data );
+                    aa : aa,  
+                    bb : bb
+                },  
+                success: function(data) {
+//                    alert('Your latitude is :'+cLatitude+' and longitude is '+cLongitude);
+//                      alert(data);
+                      document.getElementById("distance").value = data;
                 }
             });
-//       $.post('selectList.php',{aa:cLatitude, bb:cLongitude});
+    
+//       $.post('test.php',{aa:cLatitude, bb:cLongitude});
 }
 
 function errorFunction(position) 
@@ -66,21 +69,21 @@ function errorFunction(position)
 //        document.getElementById("hidden1").value = dist;
 //}
 //
-function pass(cLatitude,cLongitude){
-    var lat = cLatitude;
-    var long = cLongitude;
-    $.ajax({
-                url : "selectList.php",
-                type : "POST",
-                data : {
-                    aa: lat,
-                    bb: long
-                },
-                success: function( data ) {
-                console.log( data );
-        }
-    });
-}
+//function pass(cLatitude,cLongitude){
+//    var lat = cLatitude;
+//    var long = cLongitude;
+//    $.ajax({
+//                url : "selectList.php",
+//                type : "POST",
+//                data : {
+//                    aa: lat,
+//                    bb: long
+//                },
+//                success: function( data ) {
+//                console.log( data );
+//        }
+//    });
+//}
 
 
 

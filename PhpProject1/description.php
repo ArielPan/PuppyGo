@@ -40,170 +40,39 @@
                            $fit = "image fit";
                            $map_url = $row["map_link"];
                            $img = $row["img_url"];
-                           echo '<h2><a href = "desc.php?no='.$row['no'].'" > '.$row['name'].'</a></h2>';
-                           echo '<div class="'.$u.'">';
-                           echo '<span class="'.$fit.'">';
-                           echo '<img src="'.$img.'" />';
-                           echo '</span>';
-                           echo '</div>';
+                           echo '<section style="background-image: url('.$img.')" id="test" fixed 50%;>
+                                 <div>
+                                 <h2><span>'.$row["name"].'&nbsp&nbsp<br />&nbsp&nbsp&nbsp'.$row["address"].'</span></h2>
+                                 </div>
+                                 </section>';
                         }
             ?>
-            <div class="container"> 
-                <h2><?php echo $leashinfo?> </h2>
-                <h3><?php echo "<strong >Description:</strong>" .$desc."</br>";?> </h3>
-                <iframe src=<?php echo $map_url; ?>  width="100%"  frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div>
-            <div class="container">
-                    <?php   
-                        $select = $_GET["no"];
-                        $sql = "SELECT * FROM beachinfo WHERE no = $select";
-                        $result = mysqli_query($dbc, $sql);
-                    while($row = mysqli_fetch_array($result)) 
-                     {
-                           $bin_image = "images/facility/bin";
-                           $coffee_image = "images/facility/coffee-cup";
-                           $hospital_image = "images/facility/hospital";
-                           $nobin_image = "images/facility/no-bin";
-                           $nocoffee_image = "images/facility/no-coffee-cup";
-                           $nohospital_image = "images/facility/no-hospital";
-                           $noparking_image = "images/facility/no-parking";
-                           $nopicnic_image = "images/facility/no-picnic";
-                           $notoilet_image = "images/facility/no-toilet";
-                           $notap_image = "images/facility/no-tap";
-                           $parking_image = "images/facility/parking";
-                           $picnic_image = "images/facility/picnic";
-                           $tap_image = "images/facility/tap";
-                           $toilet_image = "images/facility/toilet";
-                           $uniform = "row 20% uniform";
-                           $u = "1u";
-                           $fit = "image fit";
-                     //   echo  $row["surfing"] . $row["sand_volleyball"] . $row["frisbee"] . $row["swimming"].  $row["sand_soccer"]."<br>";
-                       echo '<div class="' .$uniform.'">';
-                        if ($row["toilet"] ==1 )
-                        {      
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$toilet_image.'.png" />';
-                            echo '</span>';
-                            echo '</div>';
-                        }
-                        else
-                        {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$notoilet_image.'.png" />';
-                            echo '</span>';
-                            echo '</div>';
-                        }
-                        if ($row["bin"] ==1)
-                            {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$bin_image.'.png" />';
-                            echo '</span>';
-                            echo '</div>';
-                            }
-                        else
-                        {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$nobin_image.'.png" />';
-                            echo '</span>';
-                            echo '</div>';
-                        }
-                          if ($row["waterspot"] ==1)
-                               {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$tap_image.'.png" />';
-                            echo '</span>';
-                            echo '</div>';
-                               }
-                         else
-                         {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$notap_image.'.png" />';
-                            echo '</span>';
-                            echo '</div>';
-                         } 
-                         if ($row["parking"] ==1)
-                               {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$parking_image.'.png" />';
-                            echo '</span>';
-                            echo '</div>';
-                               }
-                         else
-                         {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$noparking_image.'.png" />';
-                            echo '</span>';
-                            echo '</div>';
-                         } 
-                         if ($row["cafe"] ==1)
-                               {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$coffee_image.'.png" />';
-                            echo '</span>';
-                            echo '</div>';
-                               }
-                         else
-                         {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$nocoffee_image.'.png" />';
-                            echo '</span>';
-                            echo '</div>';
-                         } 
-                         if ($row["bbq"] ==1)
-                               {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$picnic_image.'.png" />';
-                            echo '</span>';
-                            echo '</div>';
-                               }
-                         else
-                         {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$nopicnic_image.'.png" />';
-                            echo '</span>';
-                            echo '</div>';
-                         } 
-                         if ($row["clinic"] ==1)
-                               {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$hospital_image.'.png" />';
-                            echo '</span>';
-                            echo '</div>';
-                               }
-                         else
-                         {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$nohospital_image.'.png" />';
-                            echo '</span>';
-                            echo '</div>';
-                         } 
-                         echo "</div>";     
-                     }
-                        ?>	                              
-                  </div> 
-            </section>
-        <div class="container">
+            <br /><br /><br /><br /><br />
+      <table>
+          <tr id="row1">
+           <td>
 
-            <header class="major">
-                <h2>How is weather Today? </h2>
+               <font size=5>
+               <font color =red>
+                <?php echo "On-leash and Off-leash info: ";?>
+                </font>
+                </font>
+               <b><font color="white"> =<?php echo $leashinfo?></font></b><br /><br />
 
-            </header>
-            <section>
-            <div class="row 150%">
+
+               <p> <font size=5>
+               <font color =#ffff99>
+                <?php echo "Description: ";?>
+                </font>
+                </font>
+                <b><font color="white"><?php echo $desc?></font></b></p>
+
+
+
+
+            </td>
+            <td>
+
                 <div class="4u 12u$(medium)">
                     <?php
                     // set default timezone
@@ -216,7 +85,7 @@
                         $suburb = $row["zone"];
                     }
 // api
-                    $api_url = "http://api.openweathermap.org/data/2.5/weather?q=" . $suburb . "mode=json&units=metric&appid=6552ec0a723e855d8c6eb7618a0706aa";
+                    $api_url = "http://api.openweathermap.org/data/2.5/weather?q=" . $suburb . "&mode=json&units=metric&appid=6552ec0a723e855d8c6eb7618a0706aa";
                     $api_url = str_replace(" ", "%20", $api_url);
                     $weather_data = file_get_contents($api_url);
                     $json = json_decode($weather_data, TRUE);
@@ -257,41 +126,203 @@
                     }
 
 //
-                    echo "<strong> Temperature: </strong>" . $user_temp . " C<br />";
-                    echo "<strong> Humidity: </strong>" . $user_humidity . "%<br />";
-                    echo"<strong> Conditions: </strong>" . $user_conditions . "<br />";
-                    echo"<strong> Wind speed: </strong>" . $user_wind . "meter/sec<br />";
-                    echo"<strong> Wind direction: </strong>" . toTextualDescription($user_wind_direction) . "<br />";
-                    echo"<strong> Sunrise: </strong>" . $user_sunrise . "<br />";
-                    echo"<strong> Sunset: </strong>" . $user_sunset . "<br />";
+                    echo "  <strong>  Temperature: </strong>","<font color =white>" . $user_temp . " C </font><br />";
+                    echo "<strong> Humidity: </strong>", "<font color =white>". $user_humidity . "%</font><br />";
+                    echo"<strong> Conditions: </strong>" ,"<font color =white>". $user_conditions . "<br />";
+                    echo"<strong> Wind speed: </strong>" ,"<font color =white>". $user_wind . "meter/sec<br />";
+                    echo"<strong> Wind direction: </strong>" ,"<font color =white>". toTextualDescription($user_wind_direction) . "<br />";
+                    echo"<strong> Sunrise: </strong>","<font color =white>" . $user_sunrise . "<br />";
+                    echo"<strong> Sunset: </strong>","<font color =white>" . $user_sunset . "<br />";
                     ?>
                     <div class="row">
                     <div class="6u 12u$(medium)">
                     <section class="box">
                         <img src="images/weather/<?php echo $user_conditions?>.png " width="100%">
                         <h3><?php
-                        echo $user_conditions;
+                       echo $user_conditions;
                         ?></h3>
 
                     </section>
                 </div>
                 <div class="6u 12u$(medium)">
-                    <section class="box">  
-                        <h3>Temperature</h3>
-                            <font size=20><?php  echo $user_temp."℃"?></font>;   
+                    <section class="box">
+
+                            <font size=20><?php  echo $user_temp."℃"?>
+                            </font>
                     </section>
                 </div>
             </div>
         </div>
-      </div>
-         </section>
-         
+
+                <font size=5>
+               <font color =#2E86C1 >
+                <?php echo "Facilities provided on the beach: ";?>
+                </font>
+                </font>
+
+                 <?php
+                        $select = $_GET["no"];
+                        $sql = "SELECT * FROM beachinfo WHERE no = $select";
+                        $result = mysqli_query($dbc, $sql);
+
+                    while($row = mysqli_fetch_array($result))
+                     {
+                           $bin_image = "images/facility/bin";
+                           $coffee_image = "images/facility/coffee-cup";
+                           $hospital_image = "images/facility/hospital";
+                           $nobin_image = "images/facility/no-bin";
+                           $nocoffee_image = "images/facility/no-coffee-cup";
+                           $nohospital_image = "images/facility/no-hospital";
+                           $noparking_image = "images/facility/no-parking";
+                           $nopicnic_image = "images/facility/no-picnic";
+                           $notoilet_image = "images/facility/no-toilet";
+                           $notap_image = "images/facility/no-tap";
+                           $parking_image = "images/facility/parking";
+                           $picnic_image = "images/facility/picnic";
+                           $tap_image = "images/facility/tap";
+                           $toilet_image = "images/facility/toilet";
+                           $uniform = "row 20% uniform";
+                           $u = "1u";
+
+                           $fit = "image fit";
+                     //   echo  $row["surfing"] . $row["sand_volleyball"] . $row["frisbee"] . $row["swimming"].  $row["sand_soccer"]."<br>";
+
+                           echo '<div class="' .$uniform.'">';
+                        if ($row["toilet"] ==1 )
+                        {
+                            echo '<div class="'.$u.'">';
+                            echo '<span class="'.$fit.'">';
+                            echo '<img src="'.$toilet_image.'.png" />';
+                            echo '</span>';
+                            echo '</div>';
+                        }
+                        else
+                        {
+                            echo '<div class="'.$u.'">';
+                            echo '<span class="'.$fit.'">';
+                            echo '<img src="'.$notoilet_image.'.png" />';
+                           echo '</span>';
+                            echo '</div>';
+                        }
+                        if ($row["bin"] ==1)
+                            {
+                            echo '<div class="'.$u.'">';
+                            echo '<span class="'.$fit.'">';
+                            echo '<img src="'.$bin_image.'.png" />';
+                            echo '</span>';
+                            echo '</div>';
+                            }
+                        else
+                        {
+                            echo '<div class="'.$u.'">';
+                            echo '<span class="'.$fit.'">';
+                            echo '<img src="'.$nobin_image.'.png" />';
+                            echo '</span>';
+                            echo '</div>';
+                        }
+                          if ($row["waterspot"] ==1)
+                               {
+                            echo '<div class="'.$u.'">';
+                            echo '<span class="'.$fit.'">';
+                            echo '<img src="'.$tap_image.'.png" />';
+                            echo '</span>';
+                            echo '</div>';
+                               }
+                         else
+                         {
+                            echo '<div class="'.$u.'">';
+                            echo '<span class="'.$fit.'">';
+                            echo '<img src="'.$notap_image.'.png" />';
+                            echo '</span>';
+                            echo '</div>';
+                         }
+                         if ($row["parking"] ==1)
+                               {
+                            echo '<div class="'.$u.'">';
+                            echo '<span class="'.$fit.'">';
+                            echo '<img src="'.$parking_image.'.png" />';
+                            echo '</span>';
+                            echo '</div>';
+                               }
+                         else
+                         {
+                            echo '<div class="'.$u.'">';
+                            echo '<span class="'.$fit.'">';
+                            echo '<img src="'.$noparking_image.'.png" />';
+                            echo '</span>';
+                            echo '</div>';
+                         }
+                         if ($row["cafe"] ==1)
+                               {
+                            echo '<div class="'.$u.'">';
+                            echo '<span class="'.$fit.'">';
+                            echo '<img src="'.$coffee_image.'.png" />';
+                            echo '</span>';
+                            echo '</div>';
+                               }
+                         else
+                         {
+                            echo '<div class="'.$u.'">';
+                            echo '<span class="'.$fit.'">';
+                            echo '<img src="'.$nocoffee_image.'.png" />';
+                            echo '</span>';
+                            echo '</div>';
+                         }
+                         if ($row["bbq"] ==1)
+                               {
+                            echo '<div class="'.$u.'">';
+                            echo '<span class="'.$fit.'">';
+                            echo '<img src="'.$picnic_image.'.png" />';
+                            echo '</span>';
+                            echo '</div>';
+                               }
+                         else
+                         {
+                            echo '<div class="'.$u.'">';
+                            echo '<span class="'.$fit.'">';
+                            echo '<img src="'.$nopicnic_image.'.png" />';
+                            echo '</span>';
+                            echo '</div>';
+                         }
+                         if ($row["clinic"] ==1)
+                               {
+                            echo '<div class="'.$u.'">';
+                            echo '<span class="'.$fit.'">';
+                            echo '<img src="'.$hospital_image.'.png" />';
+                            echo '</span>';
+                            echo '</div>';
+                               }
+                         else
+                         {
+                            echo '<div class="'.$u.'">';
+                            echo '<span class="'.$fit.'">';
+                            echo '<img src="'.$nohospital_image.'.png" />';
+                            echo '</span>';
+                            echo '</div>';
+                         }
+                         echo "</div>";
+                     }
+                        ?>
+
+            </td>
+          </tr>
+          </table>
+
+
+
+
+
+
          <section id="main" class="wrapper">
-            <div class="container">                          
+            <div class="container">
           <header class="major">
-                <h2>What sports can you do ? </h2>
-             </header>
-                        <?php   
+                <font size=20>
+              <b>  <font color =white>
+                   <?php  echo "Recommended activities";?>
+                  </font>  </b>
+               </font>
+           </header>
+                        <?php
                         $select = $_GET["no"];
                         $servername = "40.126.224.41";
                         $username = "will";
@@ -301,8 +332,8 @@
                         if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
                         }
-                        $sql = "SELECT surfing, sand_volleyball, frisbee, swimming, sand_soccer FROM sports WHERE no = $select";
-                        $result = $conn->query($sql); 
+                        $sql = "SELECT surfing, sand_volleyball, frisbee, swimming, sand_soccer FROM activity WHERE no = $select";
+                        $result = $conn->query($sql);
                        while($row = $result->fetch_assoc())
                      {
                            $surfing_image = "images/sport/surfing";
@@ -316,7 +347,7 @@
                      //   echo  $row["surfing"] . $row["sand_volleyball"] . $row["frisbee"] . $row["swimming"].  $row["sand_soccer"]."<br>";
                        echo '<div class="' .$uniform.'">';
                         if ($row["surfing"] ==1 )
-                        {      
+                        {
                             echo '<div class="'.$u.'">';
                             echo '<span class="'.$fit.'">';
                             echo '<img src="'.$surfing_image.'.jpg" />';
@@ -340,7 +371,7 @@
                             echo '</div>';
                                }
                              if ($row["swimming"] ==1)
-                                  { 
+                                  {
                             echo '<div class="'.$u.'">';
                             echo '<span class="'.$fit.'">';
                             echo '<img src="'.$swimming_image.'.jpg" />';
@@ -355,12 +386,23 @@
                              echo '</span>';
                             echo '</div>';
                                       }
-                         echo "</div>";     
+                         echo "</div>";
                      }
                         $conn->close();
-                        ?>	                              
-                  </div>   
-</section>
+                        ?>
+                  </div>
+             </section>
+            <section>
+                <header class="major">
+                <font size=20>
+              <b>  <font color =white>
+                   <?php  echo "Check the map here";?>
+                  </font>  </b>
+               </font>
+           </header>
+                <div> <iframe src=<?php echo $map_url; ?>  width="100%" height="75%"  frameborder="0" style="border:0" allowfullscreen></iframe></div>
+            </section>
+            <br />
         <section id="three" class="wrapper style3 special">
 				<div class="container">
 					<header class="major">

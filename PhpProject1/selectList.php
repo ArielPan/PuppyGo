@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
@@ -11,7 +10,7 @@
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
-                <script src="js/distance.js"></script>
+                <script src="distance.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -29,49 +28,41 @@
 				<div class="container">
 
 					<header class="major">
-						<h2>Dog-friendly beaches map</h2>
-						<p>This map will show all the dog-friendly beaches in Victoria, as well as your current location. Feel free to click on the beach you would like to explore.</p>
+                                            <h2>Dog-friendly beaches map</h2>
+                                                <p>This map will show all the dog-friendly beaches in Victoria, as well as your current location. Feel free to click on the beach you would like to explore.</p>
 					</header>    
                                     <form>
                                         <?php
-                                            $currentLat = isset($_POST["aa"]);
-                                            $currentLong = $_POST["bb"];
-                                            require_once 'databaseConnect.php';
-                                                $sql = "SELECT * FROM beachinfo where no = 6";
-                                                $result = mysqli_query($dbc, $sql);
-                                             while(($row = mysqli_fetch_array($result)))
+                                        $test = $_GET["w1"];
+                                        $hello = explode(',',$test); 
+                                        $beachzone = $hello[0];
+                                        //echo $beachzone;
+                                        $facility = $hello[1];
+                                        //echo $facility;
+                                        $sports = $hello[2];
+                                        require_once 'databaseConnect.php';
+                                        $sql = "SELECT * FROM beachinfo where zone= '$beachzone' AND $facility= 1 AND $sports =1";
+                                        $result = mysqli_query($dbc, $sql);
+                                        //   for ($row = mysqli_fetch_array($result) && $row['no']=1; $row['no']<42; $row['no']++)
+                                        while(($row = mysqli_fetch_array($result)))
                                             {
-                                               $beachLat = $row['latitude'];
-                                               $beachLong = $row['longitude'];
-                                               $dis = distance($currentLat, $currentLong, $beachLat, $beachLong, "M");
-                                               
-                                               echo '<div class = "image">
-                                               <a href = "desc.php?no='.$row['no'].'"> <img style="width: 600px; height: 300px"; src="'.$row['img_url'].'" width="1600" height="60" />
-                                               <h2><a href = "desc.php?no='.$row['no'].'" > '.$row['name'].'</a></h2>
-                                               <p>'.$row['address'].'</p>
-                                               <p>'.$dis.'</p>
-                                               </div>';
-              
-                                             }
-                                             function distance($lat1, $lon1, $lat2, $lon2, $unit) {
-
-                                                $theta = $lon1 - $lon2;
-                                                $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
-                                                $dist = acos($dist);
-                                                $dist = rad2deg($dist);
-                                                $miles = $dist * 60 * 1.1515;
-                                                $unit = strtoupper($unit);
-
-                                                if ($unit === "K") {
-                                                    return ($miles * 1.609344);
-                                                } else if ($unit == "N") {
-                                                    return ($miles * 0.8684);
-                                                } else {
-                                                    return $miles;
-                                                }
-                                            }
-                                        
-                                        ?>
+//                                            require_once 'test.php';
+//                                            test($row['no']);
+                                            session_start();
+                                            $_SESSION['no'] = $row['no'];
+//                                            require_once 'test.php';
+                                            $name = "distance";
+                                            
+                                            echo '<div class = "image">
+                                            <a href = "desc.php?no='.$row['no'].'"> <img style="width: 600px; height: 300px"; src="'.$row['img_url'].'" width="1600" height="60" />
+                                            <h2><a href = "desc.php?no='.$row['no'].'" > '.$row['name'].'</a></h2>
+                                            <p>'.$row['address'].'</p>
+                                            </div>';
+                                            echo '<input type="text" id="'.$name.'">';
+                                            session_abort();   
+                                        }
+                                         ?>
+<!--                                        <input id="distance" name="distance" type="text" value="" />-->
                                     </form>   
                                 </div>
 			</section>

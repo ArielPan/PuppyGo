@@ -721,13 +721,13 @@
 	}
 
 		table tbody tr {
-			border: solid 1px rgba(144, 144, 144, 0.25);
+			border: solid 1px rgba(191, 219, 246, 0);
 			border-left: 0;
 			border-right: 0;
 		}
 
 			table tbody tr:nth-child(2n + 1) {
-				background-color: rgba(144, 144, 144, 0.075);
+				background-color: rgba(191, 219, 246, 0.85);
 			}
 
 		table td {
@@ -1217,3 +1217,35 @@
 		.grid-demo .row.flush > div:last-child span {
 			border-radius: 0 4px 4px 0;
 		}
+
+
+		#test {
+			z-index: -999;
+min-height: 100%;
+min-width: 1024px;
+width: 100%;
+height: auto;
+position: fixed;
+top: 0;
+left: 0;
+		 }
+
+	  #test :last-child {
+			     margin-bottom: 1;
+	   }
+
+	  #test h2 {
+			     position: absolute;
+		   		 top: 200px;
+		   		 left: 0;
+		   		 width: 100%;
+	   }
+
+	  #test h2 span {
+					 color: white;
+		   		 font: bold 24px/45px Helvetica, Sans-Serif;
+		       letter-spacing: -1px;
+		       background: rgb(0, 0, 0);
+		       background: rgba(0, 0, 0, 0.7);
+		       padding: 10px;
+		 }
