@@ -37,18 +37,35 @@
                                         $lat = $_COOKIE['clat'];
                                         $long = $_COOKIE['clong'];
                                         $test = $_GET["w1"];
-                                        if($test == ""){
-                                            $sql = "SELECT * FROM beachinfo";
+                                        $hello = explode(',', $test);
+                                        $number = count($hello);
+                                        $n = $hello[0];
+                                            $s1 = "Melbourne Suburbs";
+                                            $s2 = "Mornington Peninsula";
+                                            $s3 = "Philip Island";
+                                            $s4 = "Bellarine Peninsula";
+                                            $s5 = "Apollo Bay";
+                                        if ($number == 1) {
+                                            $sql = "select * from beachinfo";
+                                        } else if ($number > 1 && $number < 4) {
+                                            //echo $n;
+                                            //echo strcasecmp($n,$s1); just for test.
+                                            IF (strcasecmp($n,$s1)!==0 && strcmp($n,$s2)!==0 && strcmp($n,$s3)!==0 && strcmp($n,$s4)!==0 && strcmp($n,$s5)!==0) {
+                                                //echo "1"; just for test
+                                                if ($number == 2) {
+                                                    $sql = "select * from beachinfo where $hello[0]=1";
+                                                } else {
+                                                    $sql = "select * from beachinfo where $hello[0]=1 and $hello[1]=1";
+                                                }
+                                            } else if ($number == 3) {
+                                                $sql = "select * from beachinfo where zone ='$hello[0]' and $hello[1]=1";
+                                            } else if($number ==2){
+                                                $sql = "select * from beachinfo where zone = '$hello[0]'";
+                                            }
+                                        } else {
+                                            $sql = "SELECT * FROM beachinfo where zone= '$hello[0]' AND $hello[1]= 1 AND $hello[2] =1";
                                         }
-                                        else{
-                                            $hello = explode(',',$test); 
-                                            $beachzone = $hello[0];
-                                            //echo $beachzone;
-                                            $facility = $hello[1];
-                                            //echo $facility;
-                                            $sports = $hello[2];
-                                            $sql = "SELECT * FROM beachinfo where zone= '$beachzone' AND $facility= 1 AND $sports =1";
-                                        }
+                                        
                                         require_once 'databaseConnect.php';
 //                                        $sql = "SELECT * FROM beachinfo where zone= '$beachzone' AND $facility= 1 AND $sports =1";
                                         $result = mysqli_query($dbc, $sql);
