@@ -546,6 +546,8 @@
 			float: left;
 			padding: 0 1.5em 1em 0;
 			top: 0.25em;
+                       
+                        
 		}
 
 		.image.right {
@@ -555,17 +557,20 @@
 		}
 
 		.image.left, .image.right {
-			max-width: 40%;
+			max-width: 55%;
+                        max-height: 50%;
 		}
 
 			.image.left img, .image.right img {
 				width: 100%;
+                                height: 100%;
 			}
 
 		.image.fit {
 			display: block;
 			margin: 0 0 2em 0;
 			width: 100%;
+                        
 		}
 
 			.image.fit img {
@@ -721,13 +726,13 @@
 	}
 
 		table tbody tr {
-			border: solid 1px rgba(191, 219, 246, 0);
+			border: solid 1px rgba(229, 203, 207, 0.85);
 			border-left: 0;
 			border-right: 0;
 		}
 
 			table tbody tr:nth-child(2n + 1) {
-				background-color: rgba(191, 219, 246, 0.85);
+				background-color: rgba(229, 203, 207, 0.85);
 			}
 
 		table td {
@@ -1220,22 +1225,19 @@
 
 
 		#test {
-			z-index: -999;
-min-height: 100%;
-min-width: 1024px;
-width: 100%;
-height: auto;
-position: fixed;
-top: 0;
-left: 0;
+			background-repeat: no-repeat;
+	    background-position: center;
+	    background-size: cover;
+	    width: 100%;
+	    height: 100%;
 		 }
 
 	  #test :last-child {
-			     margin-bottom: 1;
+			     margin-bottom: 0;
 	   }
 
 	  #test h2 {
-			     position: absolute;
+			     position: relative;;
 		   		 top: 200px;
 		   		 left: 0;
 		   		 width: 100%;

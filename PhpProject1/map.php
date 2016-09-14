@@ -56,7 +56,7 @@
                                         <button class="button small" id="btnSearch">Show</button>
 					</div>
                                         </div>
-                                        <div id="googleMap" style="min-width: 100%; min-height: 100%; vertical-align: middle;"></div>
+                                        <div id="googleMap" style="min-width: 100%; min-height:90%; vertical-align: middle;"></div>
 					<p>As Victoria has more than 40 dog-friendly beaches, so we are providing a wide range of dog-friendly beaches for you to choose from. All of them are beautiful and attractive, but some of them may not provide enough facilities. Click on beach icon for more information</p>
                                       </div>>
                         </section>
