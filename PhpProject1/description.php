@@ -371,7 +371,7 @@
                   </font>  </b>
                </font>
            </header>
-                <div> <iframe src=<?php echo $map_url; ?>  width="100%" height="400px" frameborder="0" style="pointer-events:none" allowfullscreen></iframe></div>
+                <div> <iframe src=<?php echo $map_url; ?>  width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe></div>
                 </div>
             </section>
             <br />
@@ -392,7 +392,7 @@
         <div id=<?php echo $select; ?> class="overallStar"></div>
             </div>
             <div class="3u 12u$(small)">
-        <div id="hint"></div>
+        <div id="hint1"></div>
             </div>
         </div>
         <div class="row 150%">
@@ -403,7 +403,7 @@
         <div id=<?php echo $select; ?> class="cleanStar"></div>
             </div>
             <div class="3u 12u$(small)">
-        <div id="hint"></div>
+        <div id="hint2"></div>
             </div>
         </div>
         <div class="row 150%">
@@ -414,7 +414,7 @@
         <div id=<?php echo $select; ?> class="facilityStar"></div>
             </div>
             <div class="3u 12u$(small)">
-        <div id="hint"></div>
+        <div id="hint3"></div>
             </div>
         </div>
         <div class="row 150%">
@@ -425,7 +425,7 @@
         <div id=<?php echo $select; ?> class="safetyStar"></div>
             </div>
             <div class="3u 12u$(small)">
-        <div id="hint"></div>
+        <div id="hint4"></div>
             </div>
         </div>
         <div class="row 150%">
@@ -436,7 +436,7 @@
         <div id=<?php echo $select; ?> class="beachViewStar"></div>
             </div>
             <div class="3u 12u$(small)">
-        <div id="hint"></div>
+        <div id="hint5"></div>
             </div>
         </div>
                     <div class="container">

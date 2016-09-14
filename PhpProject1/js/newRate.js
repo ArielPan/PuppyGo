@@ -9,8 +9,6 @@ $(function(){
         half: false,
         number:5,
         size:36,
-        target: '#hint',
-        targetKeep: true,
         score: function() {
           return $(this).attr('data-number');
         }
@@ -18,8 +16,8 @@ $(function(){
      $('.overallStar').raty({
 	half  : false,
         number: 5,
-        score : 0,
-        target: '#hint',
+//        score : 0,
+        target: '#hint1',
         targetKeep: true,
         size: 36,
         click: function(score, evt) {
@@ -31,8 +29,8 @@ $(function(){
      $('.cleanStar').raty({
 	half  : false,
         number: 5,
-        score : 0,
-        target: '#hint',
+//        score : 0,
+        target: '#hint2',
         targetKeep: true,
         size: 36,
         click: function(score, evt) {
@@ -43,8 +41,8 @@ $(function(){
      $('.facilityStar').raty({
 	half  : false,
         number: 5,
-        score : 0,
-        target: '#hint',
+//        score : 0,
+        target: '#hint3',
         targetKeep: true,
         size: 36,
         click: function(score, evt) {
@@ -55,8 +53,8 @@ $(function(){
      $('.safetyStar').raty({
 	half  : false,
         number: 5,
-        score : 0,
-        target: '#hint',
+//        score : 0,
+        target: '#hint4',
         targetKeep: true,
         size: 36,
         click: function(score, evt) {
@@ -66,7 +64,7 @@ $(function(){
      });
      $('.beachViewStar').raty({
 	half  : false,
-        target: '#hint',
+        target: '#hint5',
         targetKeep: true,
         number: 5,
         size: 36,
