@@ -21,6 +21,7 @@
 		<li><a href="index.php">Home</a></li>
 		<li><a href="map.php">Map</a></li>
                 <li><a href="list.php">List</a></li>
+                <li><a href="aboutUs.php">About Us</a></li>
 		</ul>
 		</nav>
         </header>

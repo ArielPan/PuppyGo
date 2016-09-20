@@ -1033,14 +1033,14 @@
 				right: 0;
 			}
 
-/* Banner */
+/*  */
 
 	#banner {
 		background-image: url(../images/dark_tint.png), url(../images/dog_on_beach.jpg);
 		background-position: center center;
 		background-size: cover;
 		color: #ffffff;
-		padding: 14em 0em 14em;
+		padding: 8em 0em 8em;
 		text-align: center;
 	}
 
