@@ -8,6 +8,7 @@
         <script src="js/newRate.js"></script>
         <link rel="stylesheet" href="css/list-table.css" />
     <body>
+    
     <section width="100%">
         <div class="container" >
             <?php
@@ -63,26 +64,7 @@
                             $img = $row6["image_url"];
                         }
             ?>
-            <header class="major">
-                <h2><?php echo $name;?></h2>
-                <p><?php echo $address;?></p>    
-            </header>
-            <div float="left">
-            <div id="star" data-number=<?php echo $overallRate;?>></div> 
-            <div><h5>(<?php echo $rateNumber;?> users reviews)</h5></div>
-            </div>
-                    <p><span class="image left"><img src= <?php echo $img;?> alt="" /></span><p style=" font-size:150%; font-weight:bold; margin-bottom:0">Description:</p><?php echo $desc;?></p>
-        <p><p style="font-size:150%;font-weight:bold; margin-bottom:0">On-Leash/Off-Leash Information:</p><?php echo $leashinfo;?></p>
-        </div>
-        </section>
-        <input type="hidden" id="lat" value=<?php echo $lat;?> >
-        <input type="hidden" id="long" value=<?php echo $long;?>>
-        <input type="hidden" id="name" value=<?php echo $name;?>>
-        
-        <br /><br /><br />
-      <hr />
-            <section><div class="container" aligen="left"> </div><br />
-            <div class="container"><?php
+            <?php
             // set default timezone
             date_default_timezone_set('Australia/Melbourne');
 // api
@@ -119,26 +101,34 @@
             
             $space = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
             $space1 ="&nbsp;&nbsp;&nbsp;&nbsp;";
-            echo"<fieldset>";
-            echo"<img src='images/weather/$user_conditions.png' class='icons' />" .$user_temp. "°C $space";
-            echo "<img src='images/weather/drop.png' width=40px height=40px />","<font color =black>". $user_humidity . "%$space</font>";
-            echo"<img src='images/weather/wind(2).png' width=40px height=40px />","<font color =black>". toTextualWind($user_wind) . "&nbsp meter/sec $space";
-            echo"<img src='images/weather/sunrise.png' width=40px height=40px />","<font color =black>" . $user_sunrise ."$space";
-            echo"<img src='images/weather/sunset.png' width=40px height=40px />","<font color =black>" . $user_sunset . "$space";
-            echo"</fieldset>";
             ?>
+            <input type="hidden" id="lat" value=<?php echo $lat;?> >
+            <input type="hidden" id="long" value=<?php echo $long;?>>
+            <input type="hidden" id="name" value=<?php echo $name;?>>
+            <header class="major">
+                <h2><?php echo $name;?></h2>
+                <p><?php echo $address;?></p>    
+            </header>
+            
+            <div id="star" float="left" data-number=<?php echo $overallRate;?>></div> 
+            <div float="left"><h5>(<?php echo $rateNumber;?> users reviews)</h5></div>
+            <div class="container" float="left">
+            <h4>Current Weather</h4>
+                <fieldset>
+                    <img src='images/weather/<?php echo $user_conditions;?>.png' width=40px height=40px /><font color =black><?php echo $user_temp ,"°C";?></font>
+                    <img src='images/weather/drop.png' width=40px height=40px /><font color =black><?php echo $user_humidity,"%";?></font>
+                    <img src='images/weather/wind(2).png' width=40px height=40px /><font color =black><?php echo toTextualWind($user_wind);?>
+                    <img src='images/weather/sunrise.png' width=40px height=40px /><font color =black><?php echo $user_sunrise;?></font>
+                    <img src='images/weather/sunset.png' width=40px height=40px /><font color =black><?php echo $user_sunset;?></font>
+                </fieldset>
+            </div>
 
-    <h4>Current Weather</h4>
-	<ul class="icons">
-            <li><img src='images/weather/drop.png' style="width: 40%; height:40%;" /><font color =black><?php echo $user_humidity,"%";?></font></li>
-            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-            <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-            <li><a href="#" class="icon fa-tumblr"><span class="label">Tumblr</span></a></li>
-	</ul></div></section>
-       
-<br /><br />
+                    <p><span class="image left"><img src= <?php echo $img;?> alt="" /></span><p style=" font-size:150%; font-weight:bold; margin-bottom:0">Description:</p><?php echo $desc;?></p>
+        <p><p style="font-size:150%;font-weight:bold; margin-bottom:0">On-Leash/Off-Leash Information:</p><?php echo $leashinfo;?></p>
+        </div>
+        </section>
+        <br /><br /><br />
+      <hr />
 <section>
     <div class="container" aligen="left"> <font size=5 color=#000000><strong>Weather forecast</strong></font></div><br />
             <div class="container"><?php
