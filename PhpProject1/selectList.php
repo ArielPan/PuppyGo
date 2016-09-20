@@ -1,37 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Dog-friendly Beaches Map</title>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-        <script src="js/jquery-3.1.0.min.js"></script>
-        <script src="js/skel.min.js"></script>
-        <script src="js/skel-layers.min.js"></script>
-        <script src="js/init.js"></script>
-        <script src="distance.js"></script>
-        <noscript>
-        <link rel="stylesheet" href="css/skel.css" />
-        <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="css/listpage.css.css" />
-        <link rel="stylesheet" href="css/style-xlarge.css" />
-        </noscript>
-    </head>
-    <body>
+    <title>Filtered Dog-friendly Beaches List</title>  
         <?php
         include 'header.php';
-        ?>  
-
+        ?>
+    <body>
         <!-- Main -->
         <section id="main" class="wrapper">
             <div class="container">
 
                 <header class="major">
-                    <h2>Dog-friendly beaches map</h2>
-                    <p>This map will show all the dog-friendly beaches in Victoria, as well as your current location. Feel free to click on the beach you would like to explore.</p>
+                    <h2>Dog-friendly beaches list</h2>
+                    <p>This map shows all the dog-friendly beaches in Victoria based on your preferences, as well as the distance to current location. Feel free to click on the beach you would like to explore.</p>
                 </header>  
 
                 <form>
@@ -82,28 +63,26 @@
                         $sql = "select * from beachinfo where zone = " . "$query";
                         
                     }
-
-
                     require_once 'databaseConnect.php';
-//                                        $sql = "SELECT * FROM beachinfo where zone= '$beachzone' AND $facility= 1 AND $sports =1";
                     $result = mysqli_query($dbc, $sql);
-                    //   for ($row = mysqli_fetch_array($result) && $row['no']=1; $row['no']<42; $row['no']++)
-                    while (($row = mysqli_fetch_array($result))) {
-                        $name = "distance";
+                    $rowNo = mysqli_fetch_row($result);
+                    if($rowNo == 0){
+                    echo'<h2>Sorry, there is not beach found, maybe make less choices of the requirement will be better.<h2>' ;
+                    echo "<br />\n";
+                    echo "<img src='images/notfound.jpg' 70%; height: 35% />";
+                    }
+                        while (($row = mysqli_fetch_array($result))) {
                         $beachLat = $row['latitude'];
                         $beachLong = $row['longitude'];
                         $dis = distance($lat, $long, $beachLat, $beachLong, "K");
                         $distance = round($dis, 2);
                         echo '<div class = "image">
-                                            <a href = "description.php?no=' . $row['no'] . '"> <img style="width: 70%; height: 35%"; src="' . $row['img_url'] . '" width="1600" height="60" />
-                                            <h2><a href = "description.php?no=' . $row['no'] . '" > ' . $row['name'] . '</a></h2>
-                                            <p>' . $row['address'] . '</p>
-                                             <p>Distance: ' . $distance . ' Km</p>   
-                                            </div>';
-//                                            echo '<p class="wordText" id="'.$name.'">distance</p>';
-//                                            session_abort();   
+                                <a href = "description.php?no=' . $row['no'] . '"> <img style="width: 70%; height: 35%"; src="' . $row['img_url'] . '" width="1600" height="60" />
+                                <h3><a href = "description.php?no=' . $row['no'] . '" > ' . $row['name'] . '</a></h3>
+                                <p>' . $row['address'] .'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Distance: ' . $distance . ' Km</p> 
+                                </div>'; 
                     }
-
+                    
                     function distance($lat1, $lon1, $lat2, $lon2, $unit) {
 
                         $theta = $lon1 - $lon2;
@@ -122,7 +101,6 @@
                         }
                     }
                     ?>
-<!--                                        <input id="distance" name="distance" type="text" value="" />-->
                 </form>   
             </div>
         </section>

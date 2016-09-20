@@ -1,38 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Dog-friendly Beaches Map</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery-3.1.0.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-                        <link rel="stylesheet" href="css/listpage.css.css" />
-			<link rel="stylesheet" href="css/style-xlarge.css" />
-		</noscript>
-	</head>
-	<body>
-        <?php
+<title>Dog-friendly Beaches List</title>
+    <?php
         include 'header.php';
-        ?>
+    ?>
+<body>
+        
 
 		<!-- Main -->
 			<section id="main" class="wrapper">
 				<div class="container">
 
 					<header class="major">
-						<h2>Dog-friendly beaches map</h2>
-						<p>This map will show all the dog-friendly beaches in Victoria, as well as your current location. Feel free to click on the beach you would like to explore.</p>
-					</header>
-                                   
-                                        
+						<h2>Dog-friendly beaches list</h2>
+						<p>This list shows all the dog-friendly beaches in Victoria. Feel free to click on the beach you would like to explore.</p>
+					</header>    
                                     <form>
                                         <?php
                                                 require_once 'databaseConnect.php';
@@ -66,11 +48,6 @@
                                                  echo "</tr>";
                                                
                                                 echo "</table>";
-                                        //    echo '<div class = "image">
-                                       // <a href = "decription.php?no='.$row['no'].'"> <img style="width: 470px; height: 200px"; src="'.$row['img_url'].'" width="1600" height="60" />
-                                       // <head><b><a href = "desc.php?no='.$row['no'].'" > '.$row['name'].'</a></b></head>
-                                      //  <p><i>'.$row['address'].'</i></p>
-                                      //  </div>';
                                             }
                                         ?>
                                     </form>   

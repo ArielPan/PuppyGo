@@ -1,5 +1,6 @@
 <?php
     require 'databaseConnect.php';
+    
     $overallScore = $_POST['overall']; 
     $bid = $_POST['bid'];
     $cleanScore = $_POST['clean'];
@@ -10,7 +11,11 @@
     $result = mysqli_query($dbc, $sql);
     if($result)
     {
-        echo "Rate Successfully!";
+        echo "Rated Successfully!";
+    }
+    else
+    {
+        echo "Fail to rate the beach, please try again!";
     }
 ?>
 

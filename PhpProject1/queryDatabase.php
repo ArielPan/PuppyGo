@@ -1,5 +1,6 @@
 <?php
 require 'databaseConnect.php';
+    
     $sql = "select no, name, address, longitude,latitude from beachinfo";
     $result = mysqli_query($dbc, $sql);
     $locationInfo = array();

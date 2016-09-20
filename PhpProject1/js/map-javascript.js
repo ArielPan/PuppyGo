@@ -2,7 +2,6 @@ var map;
 var markers = [];
 var infowindow;
 var address;
-var img;
 var pyrmont = {lat: -37.925, lng: 145.020};
 var locationList = new Array();
 //var beach = new Array();

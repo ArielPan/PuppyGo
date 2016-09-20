@@ -7,8 +7,9 @@ var bid;
 $(function(){
      $('#star').raty({
         half: false,
+        readOnly : true,
         number:5,
-        size:36,
+        size:56,
         score: function() {
           return $(this).attr('data-number');
         }
