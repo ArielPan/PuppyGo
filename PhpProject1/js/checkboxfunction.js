@@ -42,7 +42,6 @@ $(document).ready(function () {
                 inputs+= (cboxes2[i].value+",");
             }
         }
-        //alert(inputs);
         window.location.href = "selectList.php?w1=" + inputs;
     }
 

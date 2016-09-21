@@ -25,7 +25,7 @@
 						<div class="4u$ 12u$(medium)">
 							<ul class="icons">
 								<li>
-                                                                    <img src="images/teamLogo.png" alt="" style="width: 35%; height:20%; "/><span class="label">Team SkyLark</span>
+                                                                    <img src="images/teamLogo.png" alt="" style="width: 45%; height:30%; "/>
 								</li>
 							</ul>
 						</div>

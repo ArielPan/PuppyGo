@@ -1,14 +1,13 @@
-var map;
+var map; 
 var markers = [];
 var infowindow;
 var address;
-var pyrmont = {lat: -37.925, lng: 145.020};
+var pyrmont = {lat: -37.925, lng: 145.020}; // Victoria center location
 var locationList = new Array();
-//var beach = new Array();
 
 function initMap() {
-  
   var s = document.createElement("script");
+  // initial a map
   map = new google.maps.Map(document.getElementById('googleMap'), {
     center: pyrmont,
     scrollwheel: false,
@@ -19,78 +18,51 @@ function initMap() {
   // passing in this DIV.
   var centerControlDiv = document.createElement('div');
   var centerControl = new CenterControl(centerControlDiv, map);
-
   centerControlDiv.index = 1;
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
-
+   // get all the beaches from database and set markers on the map
     beachList();
-    showBeach()
-  infowindow = new google.maps.InfoWindow();
-//  var request = {
-//    location: pyrmont,
-//    query: 'dog friendly beach in Victoria in Autrialia'
-//  };
-  
-//    for (var i = 0; i < locationList.length; i++)
-//    {
-//      var beachP = locationList[i];
-//      new google.maps.Marker({
-//      position: {lat: parseInt(beachP[0]), lng: parseInt(beachP[1])},
-//      map: map
-//    });
-//    }
-
-//  var service = new google.maps.places.PlacesService(map);
-//  service.textSearch(request, callback);
+//    get the beaches based on different areas from filter
+    showBeach();
+    infowindow = new google.maps.InfoWindow();
 }
-
-
-
-//function callback(results, status) {
-//  if (status === google.maps.places.PlacesServiceStatus.OK) {
-//    for (var i = 0; i < results.length; i++) {
-//      createMarker(results[i]);
-//    }
-//  }
-//}
-
-//function geocodeLocation(geocoder, location) {
-//  geocoder.geocode({'location': location}, function(results, status) {
-//    if (status === google.maps.GeocoderStatus.OK) {
-//        address = results[1].formatted_address;
-////        img = results[1].
-//    }
-//  });
-//}
+//create markers on the map
 function createMarker(no, lng, lat, name, address) {
-//  var placeLoc = place.geometry.location;
+//    get the location needed to be marker on the map
 var placeLoc = {lat: lng, lng: lat};
+// get beachNo
 var number = no;
+// set the format of infowindow
   var contentString = '<div id="content">'+
       '<a href="description.php?no='+ number +'">More Info</a> '+
       '</div>';
   var content1 = '<div id="content">' + '</div>';
-  var marker = 
+  // add marker on the map
+    var marker = 
           new google.maps.Marker({
     map: map,
     position: placeLoc,
     title: 'Click to zoom in',
-//    icon: photos[0].getUrl({'maxWidth': 35, 'maxHeight': 35})
   });
   markers.push(marker);
+  // zoom in when click the marker and show the infowindow
   google.maps.event.addListener(marker, 'click', function() {
-//    infowindow.setContent(content);
     infowindow.setContent(name + content1 + address + contentString);
     infowindow.open(map, this);
     map.setZoom(12);
     map.setCenter(marker.getPosition());
   });
 }
+// show beaches based on different areas
 function showBeach(){
+    //listen to the button from web page
     $('#btnSearch').click(function(){
+        // delete all the marker on the map
         deleteMarkers();
+        // recieve value passing from select area on web page
     var areaSelect = $('#zone').val();
     var zoneName = "";
+    // set zone name according to selected value
     if (areaSelect !== "0")
     {
         switch(areaSelect){
@@ -106,23 +78,26 @@ function showBeach(){
             case '5': zoneName = "Bellarine Peninsula";
                 break;
         }
+        //using ajax to send the zone name to php file and receiving a json file 
     $.ajax({
         url   : "zoneSearch.php",
         type  : "POST",
         datatype : "json",
         data: {
-//            flag: 1,
             beachZone: zoneName
         },
+        
         success:function(data){
+        // decode json file
         var loc = JSON.parse(data);
         for(var i in loc){
+            //split each column of data
             var rows = loc[i];
-            var no = rows[0];
-            var name = rows[1];
-            var address = rows[2];
-            var lng = rows[3];
-            var lat = rows[4];
+            var no = rows[0]; // beachNo
+            var name = rows[1]; // beachName
+            var address = rows[2]; //beachAddress
+            var lng = rows[3]; // longitude
+            var lat = rows[4]; //latitude
         createMarker(no, parseFloat(lat), parseFloat(lng), name, address);    
     }
     }   
@@ -132,19 +107,19 @@ function showBeach(){
     {
         beachList();
     }    
- })
-    
+ })   
 }
-
+// get all the beaches from database
 function beachList(){
     $.ajax({
         url   : "queryDatabase.php",
         type  : "POST",
         datatype : "json",
         success:function(data){
-//            locationList = locationInfo;
+            // decode json file
         var loc = JSON.parse(data);
         for(var i in loc){
+            //split each column of data
             var rows = loc[i];
             var no = rows[0];
             var name = rows[1];
@@ -156,16 +131,19 @@ function beachList(){
     }   
     });
 }
-
+// set all markers on the map
 function setMapOnAll(map) {
   for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(map);
   }
 }
+// set map with no markers
 function deleteMarkers() {
   setMapOnAll(null);
   markers = [];
 }
+
+// reset the map back to center
 function CenterControl(controlDiv, map) {
 
   // Set CSS for the control border.

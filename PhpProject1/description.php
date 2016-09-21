@@ -74,14 +74,14 @@
             $weather_data = file_get_contents($api_url);
             $json = json_decode($weather_data, TRUE);;
 //json
-            $user_temp = $json['main']['temp'];
+            $user_temp = round($json['main']['temp'],0);
             $user_humidity = $json['main']['humidity'];
             $user_conditions = $json['weather'][0]['main'];
             $user_wind = $json['wind']['speed'];
             $user_sunrise = $json['sys']['sunrise'];
             $user_sunset = $json['sys']['sunset'];
-            $user_sunrise = date('d M Y H:i:s', $user_sunrise);
-            $user_sunset = date('d M Y H:i:s', $user_sunset);
+            $user_sunrise = date('h:i', $user_sunrise);
+            $user_sunset = date('h:i', $user_sunset);
             function toTextualWind($user_wind) {
                     if ($user_wind < 1) {
                         return 'Calm';} else if ($user_wind >= 1 && $user_wind <= 5) {
@@ -119,7 +119,7 @@
                 $sequence = $left / 3;
                 $tommorrowsequence = 4 + $sequence + 4;
                 $nextdate_conditions = $json1['list'][$tommorrowsequence]['weather'][0]['main'];
-                $nextdate_temp = $json1['list'][$tommorrowsequence]['main']['temp'];
+                $nextdate_temp = round($json1['list'][$tommorrowsequence]['main']['temp'], 0);;
 
                 $tribledate = $tommorrowsequence + 8;
                 $tribledate_conditions = $json1['list'][$tribledate]['weather'][0]['main'];
@@ -144,30 +144,63 @@
                 <h2><?php echo $name;?></h2>
                 <p><?php echo $address;?></p>    
             </header>
+            <script type="text/javascript">
+            function showhide(id) {
+               var e = document.getElementById(id);
+               e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+            }
+           </script>
             <section>
                 <div class="row">
-                  <div class="3u 12u(3)">   
+                  <div class="6u 12u(3)">   
                     <div id="star" float="left" data-number=<?php echo $overallRate;?>></div> 
                     <div float="left"><h5>(<?php echo $rateNumber;?> users reviews)</h5></div>
-                    <div float="left"><h4>Weather Forecast: </h4></div>                    
                   </div>
-            <div class="9u 12u(3)">
+            <div class="6u 12u(3)">
                 <fieldset>
-                    <img src='images/weather/<?php echo $user_conditions;?>.png' width=40px height=40px /><font color =black><?php echo "Now: ", $user_temp ,"°C";?></font>
+                    <img src='images/weather/<?php echo $user_conditions;?>.png' width=40px height=40px" /><font color =black><?php echo $user_temp ,"°C";?></font>
                     <img src='images/weather/drop.png' width=40px height=40px /><font color =black><?php echo $user_humidity,"%";?></font>
                     <img src='images/weather/wind(2).png' width=40px height=40px /><font color =black><?php echo toTextualWind($user_wind);?>
                     <img src='images/weather/sunrise.png' width=40px height=40px /><font color =black><?php echo $user_sunrise;?></font>
                     <img src='images/weather/sunset.png' width=40px height=40px /><font color =black><?php echo $user_sunset;?></font>
                 </fieldset>
-                <fieldset>
+                <h5><a href="javascript:showhide('forecast')">
+               Click to Show Weather Forecast 
+                </a></h5>
+                <div id="forecast" style="display:none;">
+		    <table alt="">
+			<thead>
+			<tr>
+			    <th>Next 3 hours</th>
+                            <th>Tomorrow</th>
+                            <th><?php echo $trible_day;?></th>
+                            <th><?php echo $forth_day;?></th>
+                            <th><?php echo $fifth_day;?></th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td><img src='images/weather/<?php echo $next3h_conditions;?>.png' width=40px height=40px /></td>
+			<td><img src='images/weather/<?php echo $nextdate_conditions;?>.png' width=40px height=40px /></td>
+			<td><img src='images/weather/<?php echo $tribledate_conditions;?>.png' width=40px height=40px /></td>
+                        <td><img src='images/weather/<?php echo $fourthdate_conditions;?>.png' width=40px height=40px /></td>
+                        <td><img src='images/weather/<?php echo $fifthdate_conditoins;?>.png' width=40px height=40px /></td>
+                        </tr>
+			</tbody>
+                    </table>
+		</div>
+<!--                <fieldset>
                     <img src='images/weather/<?php echo $next3h_conditions;?>.png' width=40px height=40px /><font color =black><?php echo "In 3 hours :", $next3h_temp ,"°C";?></font>
                     <img src='images/weather/<?php echo $nextdate_conditions;?>.png' width=40px height=40px /><font color =black><?php echo "Tomorrow";?></font>
                     <img src='images/weather/<?php echo $tribledate_conditions;?>.png' width=40px height=40px /><font color =black><?php echo $trible_day;?>
                     <img src='images/weather/<?php echo $fourthdate_conditions;?>.png' width=40px height=40px /><font color =black><?php echo $forth_day;?></font>
                     <img src='images/weather/<?php echo $fifthdate_conditoins;?>.png' width=40px height=40px /><font color =black><?php echo $fifth_day;?></font>
-                </fieldset>
+                </fieldset>-->
+          
+                
             </div>
-                </div>
+ </div>
+                
             </section>
 <?php
                         if ($toilet ==1 )
@@ -230,16 +263,20 @@
     ?>
                 
         <p><span class="image left"><img src= <?php echo $img;?> alt="" /></span>
-        <fieldset>
-            <img src='<?php echo $toilet_image;?>.png' width=40px height=40px />
-            <img src='<?php echo $bin_image;?>.png' width=40px height=40px />
-            <img src='<?php echo $tap_image;?>.png' width=40px height=40px />
-            <img src='<?php echo $parking_image;?>.png' width=40px height=40px />
-            <img src='<?php echo $picnic_image;?>.png' width=40px height=40px />
-            <img src='<?php echo $coffee_image;?>.png' width=40px height=40px />
-            <img src='<?php echo $hospital_image;?>.png' width=40px height=40px />
-        </fieldset>
+        
         <p style=" font-size:150%; font-weight:bold; margin-bottom:0">On-Leash/Off-Leash Information:</p><?php echo $sleashinfo;?></p>
+        <br/>
+        <fieldset>
+            <img src='<?php echo $toilet_image;?>.png' style="width: 10%; height:5%;" />
+            <img src='<?php echo $bin_image;?>.png' style="width: 10%; height:5%;" />
+            <img src='<?php echo $tap_image;?>.png' style="width: 10%; height:5%;" />
+            <img src='<?php echo $parking_image;?>.png' style="width: 10%; height:5%;" />
+            <img src='<?php echo $picnic_image;?>.png' style="width: 10%; height:5%;" />
+            <img src='<?php echo $coffee_image;?>.png' style="width: 10%; height:5%;"/>
+            <img src='<?php echo $hospital_image;?>.png' style="width: 10%; height:5%;"/>
+        </fieldset>
+       <br/> 
+       <br/>
         <p><p style="font-size:150%;font-weight:bold; margin-bottom:0">Description:</p><?php echo $desc;?></p>
         </div>
         </section>
@@ -318,7 +355,7 @@
                 <header class="major">
                     <h3>View more pictures around the beach</h3>
            </header>
-            <div id="div_photo_ex" style="float: left; margin: 10px 15px"></div>
+                    <div id="div_photo_ex" style="float: left; margin: 10px 15px"></div>
                 </div>
            </section>
         <script type="text/javascript">
