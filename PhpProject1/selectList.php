@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
     <title>Filtered Dog-friendly Beaches List</title>  
         <?php
@@ -14,11 +13,15 @@
                     <h2>Dog-friendly beaches list</h2>
                     <p>This map shows all the dog-friendly beaches in Victoria based on your preferences, as well as the distance to current location. Feel free to click on the beach you would like to explore.</p>
                 </header>  
-
                 <form>
                     <?php
+                  /* 
+                   * receive current location through browser  
+                   * get latitude, longitude from cookie
+                   */
                     $lat = $_COOKIE['clat'];
                     $long = $_COOKIE['clong'];
+                    //set flag number to indicate number of filter items
                     $test = $_GET["w1"];
                     $hello = explode(',', $test);
                     $number = count($hello);
@@ -27,7 +30,7 @@
                     $n = $hello[0];
                     $s1 = "Melbourne Suburbs";
                     $s2 = "Mornington Peninsula";
-                    $s3 = "Philip Island";
+                    $s3 = "Phillip Island";
                     $s4 = "Bellarine Peninsula";
                     $s5 = "Apollo Bay";
                     if ($number == 0 || $hello[0]==null) {
@@ -82,7 +85,14 @@
                                 <p>' . $row['address'] .'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Distance: ' . $distance . ' Km</p> 
                                 </div>'; 
                     }
-                    
+                    /*
+                     * Calculate distance between two locations
+                     * $lat1  latitude of the first location
+                     * $lon1  longitude of the first location
+                     * $lat2  latitude of the second location
+                     * $lon2  longitude of the second location
+                     * $unit  unit of the distance
+                     */
                     function distance($lat1, $lon1, $lat2, $lon2, $unit) {
 
                         $theta = $lon1 - $lon2;
@@ -91,7 +101,7 @@
                         $dist = rad2deg($dist);
                         $miles = $dist * 60 * 1.1515;
                         $unit = strtoupper($unit);
-
+                        // conver to distance based on different unit
                         if ($unit == "K") {
                             return ($miles * 1.609344);
                         } else if ($unit == "N") {

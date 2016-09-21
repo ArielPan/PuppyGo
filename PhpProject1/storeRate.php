@@ -1,4 +1,5 @@
 <?php
+//set up database connection
     require 'databaseConnect.php';
     
     $overallScore = $_POST['overall']; 

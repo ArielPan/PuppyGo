@@ -9,13 +9,18 @@
     <div class="container">
 
 	<header class="major">
+            <!--team introduction-->
 	<h2>Skylark</h2>
-	<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
 	</header>
+        <center>
+	<a href="#" class="image fit"><img src="images/team.jpg" alt="" style="width: 65%; height:40%; "/></a>
+        </center>
+        <p>We are team Skylark, composed of postgraduates from Monash University. (From left to right) Ritika, comes from Master of Business Information System, with comprehensive knowledge about database and flexible skills on dealing with documentation. Dexter, comes from Master of IT, he masters a variety of programming languages, and some UI design knowledge. Cris, from Master of IT, he has a deep understanding about networking and security practice, he also masters a few programming techniques. Will, from Master of IT, with a good knowledge of database and UI design, has established the server for our project. Ariel, from Master of Business Information System, our core technical person, has a comprehensive knowledge of programming, brilliant skills of designing, a very nice and easy going person.
+        </p>
+        <p>We are full of passion and have worked together to overcome plenty of difficulties to come this far.We hope all the dog owners can benefit from PuppyGo. So if you have any suggestion or advice, please feel free to contact us.</p>
+        <p><a href="team_skylark@outlook.com">Email: team_skylark@outlook.com</a></p>
+        <p>Looking forward for your precious feedback.</p>
 
-	<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-	<p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
-	<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
 
     </div>
 </section>

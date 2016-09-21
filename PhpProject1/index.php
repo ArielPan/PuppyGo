@@ -16,16 +16,16 @@
     <section id="banner" >
          
         <div clas='container'>
-           <font color=white face="Lucida Sans Unicode" size="16">Looking for dog-friendly beach</font>
+           <font color=white face="Lucida Sans Unicode" size="16">Look for dog-friendly beach</font>
             <div class="row 200%" >
                 <div class="4u 12u$(medium)">
                 <center><font color=#DAF7A6 size="6" face=" Impact">Suburb</font></center>
                     <select id="Suburb" size="2" >
                         <option value="Melbourne Suburbs">Melbourne Suburbs</option>
                         <option value="Mornington Peninsula">Mornington Peninsula</option>
-                        <option value="Philip Island">Philip Island</option>
+                        <option value="Phillip Island">Philip Island</option>
                         <option value="Bellarine Peninsula">Bellarine Peninsula</option>
-                        <option value="Apollo Bay">Apollo Bay</option>
+                        <option value="Apollo Bay">The Great Ocean Road</option>
                     </select>
                 </div>
             <div class="4u 12u$(medium)">

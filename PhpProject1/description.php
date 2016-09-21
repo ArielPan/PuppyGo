@@ -34,6 +34,7 @@
                            $long = $row1["longitude"];
                            $name = $row1["name"];
                            $leashinfo = $row1["on/offleashinfo"];
+                           $sleashinfo = ereg_replace(";","<br/>",$leashinfo);
                            $map_url = $row1["map_link"];
                            $address = $row1["address"];
                            $zone = $row1["zone"];
@@ -238,7 +239,7 @@
             <img src='<?php echo $coffee_image;?>.png' width=40px height=40px />
             <img src='<?php echo $hospital_image;?>.png' width=40px height=40px />
         </fieldset>
-        <p style=" font-size:150%; font-weight:bold; margin-bottom:0">On-Leash/Off-Leash Information:</p><?php echo $leashinfo;?></p>
+        <p style=" font-size:150%; font-weight:bold; margin-bottom:0">On-Leash/Off-Leash Information:</p><?php echo $sleashinfo;?></p>
         <p><p style="font-size:150%;font-weight:bold; margin-bottom:0">Description:</p><?php echo $desc;?></p>
         </div>
         </section>
@@ -311,7 +312,6 @@
                 <div> <iframe src=<?php echo $map_url; ?>  width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe></div>
                 </div>
             </section>
-            <br />
            <script type="text/javascript" src="http://www.panoramio.com/wapi/wapi.js?v=1"></script>
            <section id="main" class="wrapper">
                 <div class="container">
@@ -433,7 +433,7 @@
                         <div class="4u 12u$(medium)">
                             <ul class="actions" >
                                 <li>
-                                    <button class="button small" id="btnSubmit">Submit</button>
+                                    <button class="button small" id="btnSubmit">Rate</button>
                                 </li>
                             </ul>
                         </div>

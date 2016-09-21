@@ -4,6 +4,7 @@
         include 'header.php';
     ?>
     <script src="js/map-javascript.js"></script>
+    <!--Google Maps API key-->
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiLXg6ivkh7RzzeZpEAgoaILl8JcYcbRs&signed_in=true&libraries=places&callback=initMap"></script>
 	<body>
@@ -23,6 +24,7 @@
                                             </div>
                                             <div >
                                               <div >
+                                               <!--select list for different areas-->
                                                 <select  id="zone">
                                                   <option value="0" selected = "true">All BEACHES IN VIC</option>
                                                   <option value="1">GREAT OCEAN ROAD</option>

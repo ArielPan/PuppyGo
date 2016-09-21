@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -18,9 +13,8 @@ and open the template in the editor.
         <!-- Footer -->
 			<footer id="footer">
 				<div class="container">
-					<section class="links">
-						<div class="row">
-							<section class="3u 6u(medium) 12u$(small)">
+                                        <div class="row">
+						<section class="8u 6u(medium) 12u$(small)">
 								<h3>The copyright of data we used belongs to</h3>
 								<ul class="unstyled">
 									<li><a href="https://www.google.com.au/maps/">Google Maps</a></li>
@@ -28,8 +22,15 @@ and open the template in the editor.
 								
 								</ul>
 							</section>
+						<div class="4u$ 12u$(medium)">
+							<ul class="icons">
+								<li>
+                                                                    <img src="images/teamLogo.png" alt="" style="width: 35%; height:20%; "/><span class="label">Team SkyLark</span>
+								</li>
+							</ul>
 						</div>
-					</section>
+					</div>
+					
 					<div class="row">
 						<div class="8u 12u$(medium)">
 							<ul class="copyright">
