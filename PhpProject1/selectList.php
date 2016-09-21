@@ -28,15 +28,17 @@
                    
                     $query = "";
                     $n = $hello[0];
+                    //define the 5 suburb name for validation
                     $s1 = "Melbourne Suburbs";
                     $s2 = "Mornington Peninsula";
                     $s3 = "Phillip Island";
                     $s4 = "Bellarine Peninsula";
                     $s5 = "Apollo Bay";
+                    //define show all beaches if users don't give any choices.
                     if ($number == 0 || $hello[0]==null) {
                         $sql = "select * from beachinfo";
                     } else if (strcasecmp($n, $s1) !== 0 && strcmp($n, $s2) !== 0 && strcmp($n, $s3) !== 0 && strcmp($n, $s4) !== 0 && strcmp($n, $s5) !== 0) {
-
+                        // if user doesn't choose the suburb, the query will like bleow.
                         for ($nq = 0; $nq < $number; $nq++) {
                             if ($nq != $number - 1) {
                                 $query = $query . "$hello[$nq] = 1 and ";
@@ -47,6 +49,7 @@
 
                         $sql = "select * from beachinfo where " . $query;
                     } else {
+                        // define the query when users choose the suburb
                         for ($nq = 0; $nq < $number; $nq++) {
                             if ($number == 1) {
                                 $query = "'$n'";
@@ -68,11 +71,12 @@
                     }
                     require_once 'databaseConnect.php';
                     $result = mysqli_query($dbc, $sql);
-                    $rowNo = mysqli_fetch_row($result);
-                    if($rowNo == 0){
-                    echo'<h2>Sorry, there is not beach found, maybe make less choices of the requirement will be better.<h2>' ;
-                    echo "<br />\n";
-                    echo "<img src='images/notfound.jpg' 70%; height: 35% />";
+                    // define the  'not found' function, when there is no beach meet the requirement.
+                    $count=mysqli_num_rows($result);
+                    if ($count==0) {
+                        echo'<h2>Sorry, there is not beach found, maybe make less choices of the requirement will be better.<h2>';
+                        echo "<br />\n";
+                        echo "<img src='images/notfound.jpg' 70%; height: 35% />";
                     }
                         while (($row = mysqli_fetch_array($result))) {
                         $beachLat = $row['latitude'];

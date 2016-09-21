@@ -12,9 +12,11 @@
     <section width="100%">
         <div class="container">
             <?php
-                        /* @var $select type */
                         require_once 'databaseConnect.php';
-                        $select = $_GET["no"];
+                        $select = $_GET["no"]; //get beach no
+                        /*
+                         * define sqls to get data from database based on passed in BeachNo
+                         */
                         $sql1 = "SELECT * FROM info WHERE no = $select";
                         $sql2 = "SELECT AVG(overallRate) from rating where beachId = $select";
                         $sql3 = "SELECT count(rateId) from rating where beachId = $select";
@@ -27,7 +29,7 @@
                         $result4 = mysqli_query($dbc, $sql4);
                         $result5 = mysqli_query($dbc, $sql5);
                         $result6 = mysqli_query($dbc, $sql6);
-                        //Data Extrated
+                        //Data Extrated from info table
                          while($row1 = mysqli_fetch_array($result1))
                         {  $desc = $row1["desc"];
                            $lat = $row1["latitude"];
@@ -39,12 +41,15 @@
                            $address = $row1["address"];
                            $zone = $row1["zone"];
                         }
+                        //Data Extrated from rating table
                         while($row2 = mysqli_fetch_array($result2)){
                             $overallRate = $row2['AVG(overallRate)'];
                         }
+                        //Data Extrated from rating table
                         while($row3 = mysqli_fetch_array($result3)){
                             $rateNumber = $row3['count(rateId)'];
                         }
+                        //Data Extrated from facility table
                         while($row4 = mysqli_fetch_array($result4)){
                             $toilet = $row4["toilet"];
                             $bin = $row4["bin"];
@@ -54,6 +59,7 @@
                             $bbq = $row4["bbq"];
                             $clinic = $row4["clinic"];
                         }
+                        // Data Extracted from activity table
                         while($row5 = mysqli_fetch_array($result5)){
                             $surfing = $row5["surfing"];
                             $volleyball = $row5["sand_volleyball"];
@@ -61,19 +67,21 @@
                             $swimming = $row5["swimming"];
                             $soccer = $row5["sand_soccer"];
                         }
+                        // Data Extracted from image table
                         while($row6 = mysqli_fetch_array($result6)){
                             $img = $row6["image_url"];
                         }
             ?>
+           <!--get weather condition-->
             <?php
             // set default timezone
             date_default_timezone_set('Australia/Melbourne');
-// api
+            // api
             $api_url = "http://api.openweathermap.org/data/2.5/weather?q=" . $zone . "&mode=json&units=metric&appid=6552ec0a723e855d8c6eb7618a0706aa";
             $api_url = str_replace(" ", "%20", $api_url);
             $weather_data = file_get_contents($api_url);
             $json = json_decode($weather_data, TRUE);;
-//json
+            //json
             $user_temp = round($json['main']['temp'],0);
             $user_humidity = $json['main']['humidity'];
             $user_conditions = $json['weather'][0]['main'];
@@ -82,6 +90,7 @@
             $user_sunset = $json['sys']['sunset'];
             $user_sunrise = date('h:i', $user_sunrise);
             $user_sunset = date('h:i', $user_sunset);
+            //translate wind speed into wind level
             function toTextualWind($user_wind) {
                     if ($user_wind < 1) {
                         return 'Calm';} else if ($user_wind >= 1 && $user_wind <= 5) {
@@ -107,7 +116,7 @@
                 $next3h_temp = $json1['list'][5]['main']['temp'];
 
                 $next3h_conditions = $json1['list'][5]['weather'][0]['main'];
-
+                // get current date and time
                 $currenttime = date('H');
 
                 if ($currenttime % 3 == 2) {
@@ -117,7 +126,7 @@
                 }
                 $left = 24 - $currenttime;
                 $sequence = $left / 3;
-                $tommorrowsequence = 4 + $sequence + 4;
+                $tommorrowsequence = 4 + $sequence + 4; //set tomorrow date
                 $nextdate_conditions = $json1['list'][$tommorrowsequence]['weather'][0]['main'];
                 $nextdate_temp = round($json1['list'][$tommorrowsequence]['main']['temp'], 0);;
 
@@ -140,6 +149,7 @@
             <input type="hidden" id="lat" value=<?php echo $lat;?> >
             <input type="hidden" id="long" value=<?php echo $long;?>>
             <input type="hidden" id="name" value=<?php echo $name;?>>
+            <!--show beach name and address-->
             <header class="major">
                 <h2><?php echo $name;?></h2>
                 <p><?php echo $address;?></p>    
@@ -150,20 +160,23 @@
                e.style.display = (e.style.display == 'block') ? 'none' : 'block';
             }
            </script>
+           <!--show average rating score-->
             <section>
                 <div class="row">
                   <div class="6u 12u(3)">   
                     <div id="star" float="left" data-number=<?php echo $overallRate;?>></div> 
                     <div float="left"><h5>(<?php echo $rateNumber;?> users reviews)</h5></div>
                   </div>
+                    <!--show current weather condition-->
             <div class="6u 12u(3)">
                 <fieldset>
-                    <img src='images/weather/<?php echo $user_conditions;?>.png' width=40px height=40px" /><font color =black><?php echo $user_temp ,"°C";?></font>
-                    <img src='images/weather/drop.png' width=40px height=40px /><font color =black><?php echo $user_humidity,"%";?></font>
-                    <img src='images/weather/wind(2).png' width=40px height=40px /><font color =black><?php echo toTextualWind($user_wind);?>
-                    <img src='images/weather/sunrise.png' width=40px height=40px /><font color =black><?php echo $user_sunrise;?></font>
-                    <img src='images/weather/sunset.png' width=40px height=40px /><font color =black><?php echo $user_sunset;?></font>
+                    <img src='images/weather/<?php echo $user_conditions;?>.png' style="width: 10%; height:5%;" /><font color =black><?php echo $user_temp ,"°C";?></font>
+                    <img src='images/weather/drop.png' style="width: 10%; height:5%;" /><font color =black><?php echo $user_humidity,"%";?></font>
+                    <img src='images/weather/wind(2).png' style="width: 10%; height:5%;" /><font color =black><?php echo toTextualWind($user_wind);?>
+                    <img src='images/weather/sunrise.png' style="width: 10%; height:5%;" /><font color =black><?php echo $user_sunrise;?></font>
+                    <img src='images/weather/sunset.png' style="width: 10%; height:5%;" /><font color =black><?php echo $user_sunset;?></font>
                 </fieldset>
+                <!--click to show weather forecast-->
                 <h5><a href="javascript:showhide('forecast')">
                Click to Show Weather Forecast 
                 </a></h5>
@@ -180,28 +193,21 @@
 			</thead>
 			<tbody>
 			<tr>
-			<td><img src='images/weather/<?php echo $next3h_conditions;?>.png' width=40px height=40px /></td>
-			<td><img src='images/weather/<?php echo $nextdate_conditions;?>.png' width=40px height=40px /></td>
-			<td><img src='images/weather/<?php echo $tribledate_conditions;?>.png' width=40px height=40px /></td>
-                        <td><img src='images/weather/<?php echo $fourthdate_conditions;?>.png' width=40px height=40px /></td>
-                        <td><img src='images/weather/<?php echo $fifthdate_conditoins;?>.png' width=40px height=40px /></td>
+			<td><img src='images/weather/<?php echo $next3h_conditions;?>.png' style="width: 70%; height:75%;" /></td>
+			<td><img src='images/weather/<?php echo $nextdate_conditions;?>.png' style="width: 70%; height:75%;" /></td>
+			<td><img src='images/weather/<?php echo $tribledate_conditions;?>.png' style="width: 70%; height:75%;" /></td>
+                        <td><img src='images/weather/<?php echo $fourthdate_conditions;?>.png' style="width: 70%; height:75%;" /></td>
+                        <td><img src='images/weather/<?php echo $fifthdate_conditoins;?>.png' style="width: 70%; height:75%;" /></td>
                         </tr>
 			</tbody>
                     </table>
-		</div>
-<!--                <fieldset>
-                    <img src='images/weather/<?php echo $next3h_conditions;?>.png' width=40px height=40px /><font color =black><?php echo "In 3 hours :", $next3h_temp ,"°C";?></font>
-                    <img src='images/weather/<?php echo $nextdate_conditions;?>.png' width=40px height=40px /><font color =black><?php echo "Tomorrow";?></font>
-                    <img src='images/weather/<?php echo $tribledate_conditions;?>.png' width=40px height=40px /><font color =black><?php echo $trible_day;?>
-                    <img src='images/weather/<?php echo $fourthdate_conditions;?>.png' width=40px height=40px /><font color =black><?php echo $forth_day;?></font>
-                    <img src='images/weather/<?php echo $fifthdate_conditoins;?>.png' width=40px height=40px /><font color =black><?php echo $fifth_day;?></font>
-                </fieldset>-->
-          
+		</div>         
                 
             </div>
  </div>
                 
             </section>
+           <!--checking facility condition from database-->
 <?php
                         if ($toilet ==1 )
                         {
@@ -261,9 +267,9 @@
                          }
                          
     ?>
-                
+        <!--show picture for the beach-->        
         <p><span class="image left"><img src= <?php echo $img;?> alt="" /></span>
-        
+        <!--show facility icons-->
         <p style=" font-size:150%; font-weight:bold; margin-bottom:0">On-Leash/Off-Leash Information:</p><?php echo $sleashinfo;?></p>
         <br/>
         <fieldset>
@@ -277,10 +283,12 @@
         </fieldset>
        <br/> 
        <br/>
+       <!--show description of the beach-->
         <p><p style="font-size:150%;font-weight:bold; margin-bottom:0">Description:</p><?php echo $desc;?></p>
         </div>
         </section>
 <br/>
+<!--show recommended activities-->
          <section >
             <div class="container">
                 <header class="major">
@@ -341,6 +349,7 @@
                         ?>
                   </div>
              </section>
+<!--show map with beach location and parking lot, toilet-->
             <section id="main" class="wrapper">
                 <div class="container">
                 <header class="major">
@@ -349,6 +358,7 @@
                 <div> <iframe src=<?php echo $map_url; ?>  width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe></div>
                 </div>
             </section>
+<!--show picture gallery around the beach-->
            <script type="text/javascript" src="http://www.panoramio.com/wapi/wapi.js?v=1"></script>
            <section id="main" class="wrapper">
                 <div class="container">
@@ -370,6 +380,7 @@
           var photo_ex_widget = new panoramio.PhotoWidget('div_photo_ex',beaches, {'width': 900, 'height': 450});
           photo_ex_widget.setPosition(0);
         </script>
+        <!--show rate section-->
             <section id="main" class="wrapper">
                 <div class="container">
                 <header class="major">
