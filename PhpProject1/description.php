@@ -10,7 +10,7 @@
     <body>
     
     <section width="100%">
-        <div class="container" >
+        <div class="container">
             <?php
                         /* @var $select type */
                         require_once 'databaseConnect.php';
@@ -71,7 +71,7 @@
             $api_url = "http://api.openweathermap.org/data/2.5/weather?q=" . $zone . "&mode=json&units=metric&appid=6552ec0a723e855d8c6eb7618a0706aa";
             $api_url = str_replace(" ", "%20", $api_url);
             $weather_data = file_get_contents($api_url);
-            $json = json_decode($weather_data, TRUE);
+            $json = json_decode($weather_data, TRUE);;
 //json
             $user_temp = $json['main']['temp'];
             $user_humidity = $json['main']['humidity'];
@@ -98,49 +98,14 @@
                     }
                    
                 }
-            
-            $space = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-            $space1 ="&nbsp;&nbsp;&nbsp;&nbsp;";
-            ?>
-            <input type="hidden" id="lat" value=<?php echo $lat;?> >
-            <input type="hidden" id="long" value=<?php echo $long;?>>
-            <input type="hidden" id="name" value=<?php echo $name;?>>
-            <header class="major">
-                <h2><?php echo $name;?></h2>
-                <p><?php echo $address;?></p>    
-            </header>
-            
-            <div id="star" float="left" data-number=<?php echo $overallRate;?>></div> 
-            <div float="left"><h5>(<?php echo $rateNumber;?> users reviews)</h5></div>
-            <div class="container" float="left">
-            <h4>Current Weather</h4>
-                <fieldset>
-                    <img src='images/weather/<?php echo $user_conditions;?>.png' width=40px height=40px /><font color =black><?php echo $user_temp ,"°C";?></font>
-                    <img src='images/weather/drop.png' width=40px height=40px /><font color =black><?php echo $user_humidity,"%";?></font>
-                    <img src='images/weather/wind(2).png' width=40px height=40px /><font color =black><?php echo toTextualWind($user_wind);?>
-                    <img src='images/weather/sunrise.png' width=40px height=40px /><font color =black><?php echo $user_sunrise;?></font>
-                    <img src='images/weather/sunset.png' width=40px height=40px /><font color =black><?php echo $user_sunset;?></font>
-                </fieldset>
-            </div>
-
-                    <p><span class="image left"><img src= <?php echo $img;?> alt="" /></span><p style=" font-size:150%; font-weight:bold; margin-bottom:0">Description:</p><?php echo $desc;?></p>
-        <p><p style="font-size:150%;font-weight:bold; margin-bottom:0">On-Leash/Off-Leash Information:</p><?php echo $leashinfo;?></p>
-        </div>
-        </section>
-        <br /><br /><br />
-      <hr />
-<section>
-    <div class="container" aligen="left"> <font size=5 color=#000000><strong>Weather forecast</strong></font></div><br />
-            <div class="container"><?php
-                $api_url = "http://api.openweathermap.org/data/2.5/forecast?q=" . $zone . "&units=metric&mode=json&appid=6552ec0a723e855d8c6eb7618a0706aa";
-                $api_url = str_replace(" ", "%20", $api_url);
-                $weather_data = file_get_contents($api_url);
-                $json = json_decode($weather_data, TRUE);
-//json      
+                $api_url1 = "http://api.openweathermap.org/data/2.5/forecast?q=" . $zone . "&units=metric&mode=json&appid=6552ec0a723e855d8c6eb7618a0706aa";
+                $api_url1 = str_replace(" ", "%20", $api_url1);
+                $weather_data = file_get_contents($api_url1);
+                $json1 = json_decode($weather_data, TRUE);
                 //because the current time always in the 4th data in the list, so the next 3 hours weather is 5th.
-                $next3h_temp = $json['list'][5]['main']['temp'];
+                $next3h_temp = $json1['list'][5]['main']['temp'];
 
-                $next3h_conditions = $json['list'][5]['weather'][0]['main'];
+                $next3h_conditions = $json1['list'][5]['weather'][0]['main'];
 
                 $currenttime = date('H');
 
@@ -152,193 +117,136 @@
                 $left = 24 - $currenttime;
                 $sequence = $left / 3;
                 $tommorrowsequence = 4 + $sequence + 4;
-                $nextdate_conditions = $json['list'][$tommorrowsequence]['weather'][0]['main'];
-                $nextdate_temp = $json['list'][$tommorrowsequence]['main']['temp'];
+                $nextdate_conditions = $json1['list'][$tommorrowsequence]['weather'][0]['main'];
+                $nextdate_temp = $json1['list'][$tommorrowsequence]['main']['temp'];
 
                 $tribledate = $tommorrowsequence + 8;
-                $tribledate_conditions = $json['list'][$tribledate]['weather'][0]['main'];
-                $tribledate_temp = $json['list'][$tribledate]['main']['temp'];
+                $tribledate_conditions = $json1['list'][$tribledate]['weather'][0]['main'];
+                $tribledate_temp = $json1['list'][$tribledate]['main']['temp'];
 
                 $fourthdate = $tribledate + 8;
-                $fourthdate_conditions = $json['list'][$fourthdate]['weather'][0]['main'];
-                $foutthdate_temp = $json['list'][$fourthdate]['main']['temp'];
+                $fourthdate_conditions = $json1['list'][$fourthdate]['weather'][0]['main'];
+                $foutthdate_temp = $json1['list'][$fourthdate]['main']['temp'];
 
                 $fifthdate = $fourthdate + 8;
-                $fifthdate_conditoins = $json['list'][$fifthdate]['weather'][0]['main'];
-                $fifthdate_temp = $json['list'][$fifthdate]['main']['temp'];
-             
-                
+                $fifthdate_conditoins = $json1['list'][$fifthdate]['weather'][0]['main'];
+                $fifthdate_temp = $json1['list'][$fifthdate]['main']['temp'];
+
                 $trible_day = date("Y-m-d", strtotime("+2 day"));
                 $forth_day = date("Y-m-d", strtotime("+3 day"));
                 $fifth_day= date("Y-m-d", strtotime("+4 day"));
-              //  $sixth_day = date("Y-m-d", strtotime("+5 day"));
-                
-                echo"<fieldset>";
-                echo "next 3 hour weather: " . $space. "Tomorrow:".$space.$space.$trible_day.$space.$space.$forth_day.$space.$space.$space1.$fifth_day.$space.$space;
-                echo "<br />\n";
-                echo"<img src='images/weather/$next3h_conditions.png' width=60x height=60px />" . $next3h_temp . "°C $space.$space";
-                echo"<img src='images/weather/$nextdate_conditions.png' width=60x height=60px />" . "$space.$space.$space1";
-                echo"<img src='images/weather/$tribledate_conditions.png' width=60x height=60px />"  . " $space.$space.$space1";
-                echo"<img src='images/weather/$fourthdate_conditions.png' width=60x height=60px />" .  "$space.$space.$space1";
-                echo"<img src='images/weather/$fifthdate_conditoins.png' width=60x height=60px />" ." $space.$space.$space1";
-                echo"</fieldset>";
-                ?>
-        </div></section>
-<section>
-    <div class="container">
-        <font size="5" color=#000000><b>Facilities on the beach</b></font></div><br />
-        <div class="container">
-         <?php
-                           $bin_image = "images/facility/bin";
-                           $coffee_image = "images/facility/coffee-cup";
-                           $hospital_image = "images/facility/hospital";
-                           $nobin_image = "images/facility/no-bin";
-                           $nocoffee_image = "images/facility/no-coffee-cup";
-                           $nohospital_image = "images/facility/no-hospital";
-                           $noparking_image = "images/facility/no-parking";
-                           $nopicnic_image = "images/facility/no-picnic";
-                           $notoilet_image = "images/facility/no-toilet";
-                           $notap_image = "images/facility/no-tap";
-                           $parking_image = "images/facility/parking";
-                           $picnic_image = "images/facility/picnic";
-                           $tap_image = "images/facility/tap";
-                           $toilet_image = "images/facility/toilet";
-                           $uniform = "row 100% uniform";
-                           $u = "1u";
-
-                           $fit = "image fit";
-                   
-
-                          echo '<div class="' .$uniform.'">';
+            ?>
+            <input type="hidden" id="lat" value=<?php echo $lat;?> >
+            <input type="hidden" id="long" value=<?php echo $long;?>>
+            <input type="hidden" id="name" value=<?php echo $name;?>>
+            <header class="major">
+                <h2><?php echo $name;?></h2>
+                <p><?php echo $address;?></p>    
+            </header>
+            <section>
+                <div class="row">
+                  <div class="3u 12u(3)">   
+                    <div id="star" float="left" data-number=<?php echo $overallRate;?>></div> 
+                    <div float="left"><h5>(<?php echo $rateNumber;?> users reviews)</h5></div>
+                    <div float="left"><h4>Weather Forecast: </h4></div>                    
+                  </div>
+            <div class="9u 12u(3)">
+                <fieldset>
+                    <img src='images/weather/<?php echo $user_conditions;?>.png' width=40px height=40px /><font color =black><?php echo "Now: ", $user_temp ,"°C";?></font>
+                    <img src='images/weather/drop.png' width=40px height=40px /><font color =black><?php echo $user_humidity,"%";?></font>
+                    <img src='images/weather/wind(2).png' width=40px height=40px /><font color =black><?php echo toTextualWind($user_wind);?>
+                    <img src='images/weather/sunrise.png' width=40px height=40px /><font color =black><?php echo $user_sunrise;?></font>
+                    <img src='images/weather/sunset.png' width=40px height=40px /><font color =black><?php echo $user_sunset;?></font>
+                </fieldset>
+                <fieldset>
+                    <img src='images/weather/<?php echo $next3h_conditions;?>.png' width=40px height=40px /><font color =black><?php echo "In 3 hours :", $next3h_temp ,"°C";?></font>
+                    <img src='images/weather/<?php echo $nextdate_conditions;?>.png' width=40px height=40px /><font color =black><?php echo "Tomorrow";?></font>
+                    <img src='images/weather/<?php echo $tribledate_conditions;?>.png' width=40px height=40px /><font color =black><?php echo $trible_day;?>
+                    <img src='images/weather/<?php echo $fourthdate_conditions;?>.png' width=40px height=40px /><font color =black><?php echo $forth_day;?></font>
+                    <img src='images/weather/<?php echo $fifthdate_conditoins;?>.png' width=40px height=40px /><font color =black><?php echo $fifth_day;?></font>
+                </fieldset>
+            </div>
+                </div>
+            </section>
+<?php
                         if ($toilet ==1 )
                         {
-                           echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$toilet_image.'.png" width=40px height=40px />';
-                            echo '</span>';
-                            echo '</div>';
+                            $toilet_image = "images/facility/toilet";
                         }
                         else
                         {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$notoilet_image.'.png" width=40px height=40px />';
-                           echo '</span>';
-                            echo '</div>';
+                            $toilet_image = "images/facility/no-toilet";
                         }
                         if ($bin ==1)
                             {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$bin_image.'.png"width=40px height=40px />';
-                            echo '</span>';
-                            echo '</div>';
+                            $bin_image = "images/facility/bin";
                             }
                         else
                         {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$nobin_image.'.png" width=40px height=40px />';
-                            echo '</span>';
-                            echo '</div>';
+                            $bin_image = "images/facility/no-bin";
                         }
                           if ($waterspot ==1)
                                {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$tap_image.'.png" width=40px height=40px />';
-                            echo '</span>';
-                            echo '</div>';
+                            $tap_image = "images/facility/tap";
                                }
                          else
                          {
-                            echo '<div class="'.$u.'">';
-                           echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$notap_image.'.png" width=40px height=40px />';
-                            echo '</span>';
-                            echo '</div>';
+                            $tap_image = "images/facility/no-tap";
                          }
                          if ($parking ==1)
                                {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$parking_image.'.png" width=40px height=40px />';
-                            echo '</span>';
-                            echo '</div>';
+                            $parking_image = "images/facility/parking";
                                }
                          else
                          {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$noparking_image.'.png" width=40px height=40px />';
-                            echo '</span>';
-                            echo '</div>';
+                            $parking_image = "images/facility/no-parking";
                          }
                          if ($cafe ==1)
                                {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$coffee_image.'.png" width=40px height=40px />';
-                            echo '</span>';
-                            echo '</div>';
+                            $coffee_image = "images/facility/coffee-cup";
                                }
                          else
                          {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$nocoffee_image.'.png" width=40px height=40px />';
-                            echo '</span>';
-                            echo '</div>';
+                            $coffee_image = "images/facility/no-coffee-cup";
                          }
                          if ($bbq ==1)
                                {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$picnic_image.'.png" width=40px height=40px />';
-                            echo '</span>';
-                            echo '</div>';
+                            $picnic_image = "images/facility/picnic";
                                }
                          else
                          {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$nopicnic_image.'.png" width=40px height=40px />';
-                            echo '</span>';
-                            echo '</div>';
+                            $picnic_image = "images/facility/no-picnic";
                          }
                          if ($clinic ==1)
                                {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$hospital_image.'.png" width=40x height=40px />';
-                            echo '</span>';
-                            echo '</div>';
+                            $hospital_image = "images/facility/hospital";
                                }
                          else
                          {
-                            echo '<div class="'.$u.'">';
-                            echo '<span class="'.$fit.'">';
-                            echo '<img src="'.$nohospital_image.'.png" width=40px height=40px />';
-                            echo '</span>';
-                            echo '</div>';
+                            $hospital_image = "images/facility/no-hospital";
                          }
-                         echo "</div>";
+                         
     ?>
-
-        
+                
+        <p><span class="image left"><img src= <?php echo $img;?> alt="" /></span>
+        <fieldset>
+            <img src='<?php echo $toilet_image;?>.png' width=40px height=40px />
+            <img src='<?php echo $bin_image;?>.png' width=40px height=40px />
+            <img src='<?php echo $tap_image;?>.png' width=40px height=40px />
+            <img src='<?php echo $parking_image;?>.png' width=40px height=40px />
+            <img src='<?php echo $picnic_image;?>.png' width=40px height=40px />
+            <img src='<?php echo $coffee_image;?>.png' width=40px height=40px />
+            <img src='<?php echo $hospital_image;?>.png' width=40px height=40px />
+        </fieldset>
+        <p style=" font-size:150%; font-weight:bold; margin-bottom:0">On-Leash/Off-Leash Information:</p><?php echo $leashinfo;?></p>
+        <p><p style="font-size:150%;font-weight:bold; margin-bottom:0">Description:</p><?php echo $desc;?></p>
         </div>
-</section>
-
-<hr />
-
-         <section id="main" class="wrapper">
+        </section>
+<br/>
+         <section >
             <div class="container">
-          <header class="major">
-                <font size=20>
-              <b>  <font color = black>
-                   <?php  echo "Recommended activities";?>
-                  </font>  </b>
-               </font>
+                <header class="major">
+                    <h3>Recommended activities</h3> 
            </header>
                         <?php
                            $surfing_image = "images/sport/surfing";
@@ -398,11 +306,7 @@
             <section id="main" class="wrapper">
                 <div class="container">
                 <header class="major">
-                <font size=20>
-              <b>  <font color = black>
-                   <?php  echo "Check the map here";?>
-                  </font>  </b>
-               </font>
+                    <h3>Check the map here</h3>
            </header>
                 <div> <iframe src=<?php echo $map_url; ?>  width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe></div>
                 </div>
@@ -412,11 +316,7 @@
            <section id="main" class="wrapper">
                 <div class="container">
                 <header class="major">
-                <font size=20>
-              <b>  <font color = black>
-                   <?php  echo "Check the View of the beach"; ?>
-                  </font>  </b>
-               </font>
+                    <h3>View more pictures around the beach</h3>
            </header>
             <div id="div_photo_ex" style="float: left; margin: 10px 15px"></div>
                 </div>
@@ -436,11 +336,7 @@
             <section id="main" class="wrapper">
                 <div class="container">
                 <header class="major">
-                <font size=20>
-              <b>  <font color = black>
-                   <?php  echo "Please rate this Beach!"; ?>
-                  </font>  </b>
-               </font>
+                    <h3>Please Rate this beach!</h3>
            </header>
         <div class="row 150%">
             <div class="3u 12u$(small)">
