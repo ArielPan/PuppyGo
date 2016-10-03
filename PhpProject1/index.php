@@ -26,7 +26,7 @@
                     <select id="Suburb" size="2" >
                         <option value="Melbourne Suburbs">Melbourne Suburbs</option>
                         <option value="Mornington Peninsula">Mornington Peninsula</option>
-                        <option value="Philip Island">Philip Island</option>
+                        <option value="Phillip Island">Philip Island</option>
                         <option value="Bellarine Peninsula">Bellarine Peninsula</option>
                         <option value="Apollo Bay">Apollo Bay</option>
                     </select>

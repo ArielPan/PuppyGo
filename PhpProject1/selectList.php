@@ -74,7 +74,7 @@
                     // define the  'not found' function, when there is no beach meet the requirement.
                     $count=mysqli_num_rows($result);
                     if ($count==0) {
-                        echo'<h2>Sorry, there is not beach found, maybe make less choices of the requirement will be better.<h2>';
+                        echo'<h2>Sorry, no beach found! Please try again with less choices to get more results.<h2>';
                         echo "<br />\n";
                         echo "<img src='images/notfound.jpg' 70%; height: 35% />";
                     }

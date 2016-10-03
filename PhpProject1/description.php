@@ -57,7 +57,7 @@
                             $parking = $row4["parking"];
                             $cafe = $row4["cafe"];
                             $bbq = $row4["bbq"];
-                            $clinic = $row4["clinic"];
+                            $clinic = $row4["vet"];
                         }
                         // Data Extracted from activity table
                         while($row5 = mysqli_fetch_array($result5)){
@@ -89,7 +89,7 @@
             $user_sunrise = $json['sys']['sunrise'];
             $user_sunset = $json['sys']['sunset'];
             $user_sunrise = date('h:i', $user_sunrise);
-            $user_sunset = date('h:i', $user_sunset);
+            $user_sunset = date('H:i', $user_sunset);
             //translate wind speed into wind level
             function toTextualWind($user_wind) {
                     if ($user_wind < 1) {
@@ -360,12 +360,12 @@
             </section>
 <!--show picture gallery around the beach-->
            <script type="text/javascript" src="http://www.panoramio.com/wapi/wapi.js?v=1"></script>
-           <section id="main" class="wrapper">
+           <section id="main" class="wrapper" >
                 <div class="container">
                 <header class="major">
                     <h3>View more pictures around the beach</h3>
            </header>
-                    <div id="div_photo_ex" style="float: left; margin: 10px 15px"></div>
+                    <div id="div_photo_ex" style="float: left; margin: 10px 15px;"></div>
                 </div>
            </section>
         <script type="text/javascript">
@@ -377,7 +377,7 @@
           'rect': {'sw': {'lat': parseFloat(lat)-0.03, 'lng': parseFloat(long)-0.03}, 'ne': {'lat': parseFloat(lat)+0.07, 'lng': parseFloat(lat)+0.07}}
         });
           var photo_ex_options = {'width': 900, 'height': 450};
-          var photo_ex_widget = new panoramio.PhotoWidget('div_photo_ex',beaches, {'width': 900, 'height': 450});
+          var photo_ex_widget = new panoramio.PhotoWidget('div_photo_ex',beaches,photo_ex_options );
           photo_ex_widget.setPosition(0);
         </script>
         <!--show rate section-->
@@ -388,7 +388,7 @@
            </header>
         <div class="row 150%">
             <div class="3u 12u$(small)">
-                <h4>Overall Rate:</h4>
+                <h4>Overall Rating:</h4>
             </div>
             <div class="3u 12u$(small)">
         <div id=<?php echo $select; ?> class="overallStar"></div>
@@ -406,7 +406,7 @@
         </div>
         <div class="row 150%">
             <div class="3u 12u$(small)">
-                <h4>Cleanliness Rate:</h4>
+                <h4>Cleanliness:</h4>
             </div>
             <div class="3u 12u$(small)">
         <div id=<?php echo $select; ?> class="cleanStar"></div>
@@ -424,7 +424,7 @@
         </div>
         <div class="row 150%">
             <div class="3u 12u$(small)">
-                <h4>Facility Rate:</h4>
+                <h4>Facility for Dog:</h4>
             </div>
             <div class="3u 12u$(small)">
         <div id=<?php echo $select; ?> class="facilityStar"></div>
@@ -442,7 +442,7 @@
         </div>
         <div class="row 150%">
             <div class="3u 12u$(small)">
-                <h4>Beach Safety Rate:</h4>
+                <h4>Beach Safety for Dog:</h4>
             </div>
             <div class="3u 12u$(small)">
         <div id=<?php echo $select; ?> class="safetyStar"></div>
@@ -460,7 +460,7 @@
         </div>
         <div class="row 150%">
             <div class="3u 12u$(small)">
-                <h4>Beach View Rate:</h4>
+                <h4>Beach View:</h4>
             </div>
             <div class="3u 12u$(small)">
         <div id=<?php echo $select; ?> class="beachViewStar"></div>
@@ -473,7 +473,7 @@
         <option value="regular">attractive</option>
         <option value="good">beautiful</option>
         <option value="gorgeous">gorgeous</option>
-      </select>
+    </select>
             </div>
         </div>
                     <div class="container">
@@ -481,13 +481,13 @@
                         <div class="4u 12u$(medium)">
                             <ul class="actions" >
                                 <li>
-                                    <button class="button small" id="btnSubmit">Rate</button>
+                                    <button class="button small" id="btnSubmit">Click to Rate</button>
                                 </li>
                             </ul>
                         </div>
                     </div>
-            </div>
-            </section>
+        </div>
+    </section>
         <?php
         include 'footer.php';
         ?>

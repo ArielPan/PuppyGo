@@ -67,7 +67,7 @@ function showBeach(){
     {
         switch(areaSelect){
             
-            case '1': zoneName = "Apollo Bay";
+            case '1': zoneName = "Apolo Bay";
                 break;
             case '2': zoneName = "Melbourne Suburbs";
                 break;
