@@ -3,7 +3,7 @@
 require 'databaseConnect.php';
 //receive beach zone variable from javascript
     if(isset($_POST['beachZone'])){
-        $sql = "SELECT no, name, address,longitude, latitude from beachinfo WHERE zone = '{$_POST['beachZone']}' ";
+        $sql = "SELECT no, name, address,longitude, latitude from info WHERE zone = '{$_POST['beachZone']}' ";
         $result = mysqli_query($dbc, $sql);
         $locationInfo = array();
         // retrive data from database and sent into an array

@@ -36,7 +36,7 @@
                            $long = $row1["longitude"];
                            $name = $row1["name"];
                            $leashinfo = $row1["on/offleashinfo"];
-                           $sleashinfo = ereg_replace(";","<br/>",$leashinfo);
+//                           $sleashinfo = ereg_replace(";","<br/>",$leashinfo);
                            $map_url = $row1["map_link"];
                            $address = $row1["address"];
                            $zone = $row1["zone"];
@@ -270,7 +270,7 @@
         <!--show picture for the beach-->        
         <p><span class="image left"><img src= <?php echo $img;?> alt="" /></span>
         <!--show facility icons-->
-        <p style=" font-size:150%; font-weight:bold; margin-bottom:0">On-Leash/Off-Leash Information:</p><?php echo $sleashinfo;?></p>
+        <p style=" font-size:150%; font-weight:bold; margin-bottom:0">On-Leash/Off-Leash Information:</p><?php echo $leashinfo;?></p>
         <br/>
         <fieldset>
             <img src='<?php echo $toilet_image;?>.png' style="width: 10%; height:5%;" />

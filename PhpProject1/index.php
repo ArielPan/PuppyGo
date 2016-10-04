@@ -28,7 +28,7 @@
                         <option value="Mornington Peninsula">Mornington Peninsula</option>
                         <option value="Phillip Island">Philip Island</option>
                         <option value="Bellarine Peninsula">Bellarine Peninsula</option>
-                        <option value="Apollo Bay">Apollo Bay</option>
+                        <option value="Apolo Bay">Apollo Bay</option>
                     </select>
 
 

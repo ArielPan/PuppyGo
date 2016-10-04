@@ -33,7 +33,7 @@
                     $s2 = "Mornington Peninsula";
                     $s3 = "Phillip Island";
                     $s4 = "Bellarine Peninsula";
-                    $s5 = "Apollo Bay";
+                    $s5 = "Apolo Bay";
                     //define show all beaches if users don't give any choices.
                     if ($number == 0 || $hello[0]==null) {
                         $sql = "select * from beachinfo";
