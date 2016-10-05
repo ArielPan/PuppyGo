@@ -11,7 +11,7 @@
 
                 <header class="major">
                     <h2>Dog-friendly beaches list</h2>
-                    <p>This map shows all the dog-friendly beaches in Victoria based on your preferences, as well as the distance to current location. Feel free to click on the beach you would like to explore.</p>
+                    <p>This list shows all the dog-friendly beaches in Victoria based on your preferences, as well as the distance to current location. Feel free to click on the beach you would like to explore.</p>
                 </header>  
                 <form>
                     <?php

@@ -361,7 +361,7 @@
                 </div>
             </section>
 <!--show picture gallery around the beach-->
-           <script type="text/javascript" src="http://www.panoramio.com/wapi/wapi.js?v=1"></script>
+<script type="text/javascript" src="https://ssl.panoramio.com/wapi/wapi.js?v=1&amp;hl=en"></script>
            <section id="main" class="wrapper" >
                 <div class="container">
                     
