@@ -355,17 +355,22 @@
                 <header class="major">
                     <h3>Check the map here</h3>
            </header>
-                <div> <iframe src=<?php echo $map_url; ?>  width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+                    <center>
+                <div> <iframe src=<?php echo $map_url; ?>  width="90%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+                    </center>
                 </div>
             </section>
 <!--show picture gallery around the beach-->
            <script type="text/javascript" src="http://www.panoramio.com/wapi/wapi.js?v=1"></script>
            <section id="main" class="wrapper" >
                 <div class="container">
+                    
                 <header class="major">
                     <h3>View more pictures around the beach</h3>
-           </header>
-                    <div id="div_photo_ex" style="float: left; margin: 10px 15px;"></div>
+                </header> 
+                    <center>
+                <div id="div_photo_ex" style="margin: 10px 10px;"></div>   
+                </center>
                 </div>
            </section>
         <script type="text/javascript">
@@ -376,7 +381,7 @@
           'tag':'beach' ,
           'rect': {'sw': {'lat': parseFloat(lat)-0.03, 'lng': parseFloat(long)-0.03}, 'ne': {'lat': parseFloat(lat)+0.07, 'lng': parseFloat(lat)+0.07}}
         });
-          var photo_ex_options = {'width': 900, 'height': 450};
+          var photo_ex_options = {'width': 800, 'height': 350};
           var photo_ex_widget = new panoramio.PhotoWidget('div_photo_ex',beaches,photo_ex_options );
           photo_ex_widget.setPosition(0);
         </script>
