@@ -5,7 +5,7 @@
         include 'header.php';
 ?>    
     <script src="js/distance.js"></script>
-    <link rel="stylesheet" href="css/button.css" />        
+<!--    <link rel="stylesheet" href="css/button.css" />        -->
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -24,13 +24,13 @@
                 <!-- add three drop list here-->
                 <div class="4u 12u$(medium)">
                     <center>       
-                    <font color=#DAF7A6 size="5" face ="impact">Suburb</font></center>
+                    <font color=#c34e22 size="5" face ="impact">Suburb</font></center>
                     <select id="Suburb" class="selectpicker" title="Please select a suburb" >
                         <option value="Melbourne Suburbs">Melbourne Suburbs</option>
                         <option value="Mornington Peninsula">Mornington Peninsula</option>
                         <option value="Phillip Island">Philip Island</option>
                         <option value="Bellarine Peninsula">Bellarine Peninsula</option>
-                        <option value="Apolo Bay">Apollo Bay</option>
+                        <option value="Apolo Bay">Great Ocean Road</option>
                     </select>
 
 
@@ -38,7 +38,7 @@
                 <div class="4u 12u$(medium)">
 
                     <!--add the drop down list --facility -->
-                    <center> <font color=#FFC300 size="5" face ="impact">Facilities </font></center>
+                    <center> <font color=#c34e22 size="5" face ="impact">Facilities </font></center>
                     <select id="facility" class="selectpicker form-control" multiple title="Please select facilities">
                         <option value="toilet">toilet</option>
                         <option value="bin">bin</option>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="4u 12u$(medium)">
                     <!--add the drop down list --sport -->
-                    <center><font color=#FF5733 size="5" face ="impact">Activities</font></center>
+                    <center><font color=#c34e22 size="5" face ="impact">Activities</font></center>
                     <select id="sport" class="selectpicker form-control" multiple data-max-options="3" title="Please select activities">
                         <option value="frisbee">frisbee</option>
                         <option value="sand_volleyball">sand volleyball</option>
@@ -66,21 +66,23 @@
         </div>
         <br />
         <br />
+        <br />
+        <br />
         <center>
             <div class="container">
 
                 <div class="4u 12u$(medium)">
 <!--Add a button to send the data of users' choice to selectlist.php and going to the list page.-->
-                    <ul1>
-                        <li1><a href="#" class="round green" id="GO">GO!<span class="round">Get the beaches based on your choices.</span></a></li1>                       
-                    </ul1> 
+                    
+                    <button class="button big" id="GO">Search</button> 
                 </div>
                 <!-- add  tow buttons to led users to map page or list page.-->
-            <li1><a href="#" class="round red" id="map">Map<span class="round">See all the beaches on a map. </span></a></li1>
-                        <li1><a href="#" class="round yellow" id="list">List<span class="round">See all the beaches on a list.</span></a></li1>
-                <br />
             </div>
-
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
         </center>
     </section>
     <!-- Footer -->
