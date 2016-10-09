@@ -164,7 +164,7 @@
             <section>
                 <div class="row">
                   <div class="6u 12u(3)">   
-                    <div id="star" float="left" data-number=<?php echo $overallRate;?>></div> 
+                    <div class="star" float="left" data-number=<?php echo $overallRate;?>></div> 
                     <div float="left"><h5>(<?php echo $rateNumber;?> users reviews)</h5></div>
                   </div>
                     <!--show current weather condition-->
@@ -208,7 +208,7 @@
                 
             </section>
            <!--checking facility condition from database-->
-<?php
+            <?php
                         if ($toilet ==1 )
                         {
                             $toilet_image = "images/facility/toilet";
@@ -266,7 +266,7 @@
                             $hospital_image = "images/facility/no-hospital";
                          }
                          
-    ?>
+                ?>
         <!--show picture for the beach-->        
         <p><span class="image left"><img src= <?php echo $img;?> alt="" /></span>
         <!--show facility icons-->

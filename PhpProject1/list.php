@@ -35,13 +35,13 @@
                                                 echo '<head><b><a href = "description.php?no='.$row['no'].'" > '.$row['name'].'</a></b></head>';
                                                 echo '<p><i>'.$row['address'].'</i></p>';
                                                 echo "</td>";
-                                                  echo "<td>";
-                                                  echo '<a href = "description.php?no='.$row1['no'].'"> ';
-                                                  echo ' <img style="width: 470px; height: 200px"; src="'.$row1['img_url'].'" width="1600" height="60" />';
-                                                  echo '<head><b><a href = "description.php?no='.$row1['no'].'" > '.$row1['name'].'</a></b></head>';
-                                                  echo '<p><i>'.$row1['address'].'</i></p>';
-                                                  echo "</td>";
-                                                 echo "</tr>";
+                                                echo "<td >";
+                                                echo '<a href = "description.php?no='.$row1['no'].'"> ';
+                                                echo ' <img style="width: 470px; height: 200px"; src="'.$row1['img_url'].'" width="1600" height="60" />';
+                                                echo '<head><b><a href = "description.php?no='.$row1['no'].'" > '.$row1['name'].'</a></b></head>';
+                                                echo '<p><i>'.$row1['address'].'</i></p>';
+                                                echo "</td>";
+                                                echo "</tr>";
                                                
                                                 echo "</table>";
                                             }

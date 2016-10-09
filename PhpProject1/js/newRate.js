@@ -6,7 +6,7 @@ var beachView = 0;
 var bid;
 $(function(){
 //    show the average rate
-     $('#star').raty({
+     $('.star').raty({
         half: false,
         readOnly : true,
         number:5,

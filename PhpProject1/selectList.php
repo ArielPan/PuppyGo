@@ -4,6 +4,8 @@
         <?php
         include 'header.php';
         ?>
+        <script src="js/jquery.raty.min.js"></script>
+        <script src="js/newRate.js"></script>
     <body>
         <!-- Main -->
         <section id="main" class="wrapper">
@@ -78,17 +80,147 @@
                         echo "<br />\n";
                         echo "<img src='images/notfound.jpg' 70%; height: 35% />";
                     }
+                    echo '<table>';
                         while (($row = mysqli_fetch_array($result))) {
                         $beachLat = $row['latitude'];
                         $beachLong = $row['longitude'];
+                        $beachNo = $row['no'];
+                        $sql2 = "SELECT AVG(overallRate) from rating where beachId = $beachNo";
+                        $sql3 = "SELECT count(rateId) from rating where beachId = $beachNo";
+                        $result2 = mysqli_query($dbc, $sql2); 
+                        $result3 = mysqli_query($dbc, $sql3);
+                        $overallRate = mysqli_fetch_array($result2)['AVG(overallRate)'];
+                        $count = mysqli_fetch_array($result3)['count(rateId)'];
+                        $toilet = $row['toilet'];
+                        $bin = $row['bin'];
+                        $waterspot = $row['waterspot'];
+                        $parking = $row['parking'];
+                        $cafe = $row['cafe'];
+                        $bbq = $row['bbq'];
+                        $clinic = $row['clinic'];
+                        if ($toilet ==1 )
+                        {
+                            $toilet_image = "images/facility/toilet.png";
+                        }
+                        else
+                        {
+                            $toilet_image = "images/facility/no-toilet.png";
+                        }
+                        if ($bin ==1)
+                            {
+                            $bin_image = "images/facility/bin.png";
+                            }
+                        else
+                        {
+                            $bin_image = "images/facility/no-bin.png";
+                        }
+                          if ($waterspot ==1)
+                               {
+                            $tap_image = "images/facility/tap.png";
+                               }
+                         else
+                         {
+                            $tap_image = "images/facility/no-tap.png";
+                         }
+                         if ($parking ==1)
+                               {
+                            $parking_image = "images/facility/parking.png";
+                               }
+                         else
+                         {
+                            $parking_image = "images/facility/no-parking.png";
+                         }
+                         if ($cafe ==1)
+                               {
+                            $coffee_image = "images/facility/coffee-cup.png";
+                               }
+                         else
+                         {
+                            $coffee_image = "images/facility/no-coffee-cup.png";
+                         }
+                         if ($bbq ==1)
+                               {
+                            $picnic_image = "images/facility/picnic.png";
+                               }
+                         else
+                         {
+                            $picnic_image = "images/facility/no-picnic.png";
+                         }
+                         if ($clinic ==1)
+                               {
+                            $hospital_image = "images/facility/hospital.png";
+                               }
+                         else
+                         {
+                            $hospital_image = "images/facility/no-hospital.png";
+                         }
+                        $id = 'star';
+                        $imgF ='image left';
                         $dis = distance($lat, $long, $beachLat, $beachLong, "K");
                         $distance = round($dis, 2);
-                        echo '<div class = "image">
-                                <a href = "description.php?no=' . $row['no'] . '"> <img style="width: 70%; height: 35%"; src="' . $row['img_url'] . '" width="1600" height="60" />
-                                <h3><a href = "description.php?no=' . $row['no'] . '" > ' . $row['name'] . '</a></h3>
-                                <p>' . $row['address'] .'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Distance: ' . $distance . ' Km</p> 
-                                </div>'; 
+                        
+//                                echo '<tr>';
+//                                echo '<td align="left"valign="bottom">';
+//                                echo '<a href = "description.php?no='.$row['no'].'"> ';
+//                                echo '<div><img src= "'.$row['img_url'].'" alt="" style="width: 80%; height:80%;"/></div>';
+//                                echo '</td>';
+//                                echo '<td align="left" valign="top">';
+//                                echo '<a href = "description.php?no='.$row['no'].'"> ';
+//                                echo '<p style=" font-size:130%; font-weight:bold; margin-bottom:0"> '.$row['name'].'</p>';
+//                                echo '<p><i>'.$row['address'].'Distance: ' . $distance . ' Km</i></p>';
+//                                echo '<div class='. $id .' float="left" data-number='. $overallRate .'></div>';
+//                                echo '<fieldset>
+//                                <img src='.$toilet_image.' style="width: 8%; height:4%;" />
+//                                <img src='.$bin_image.' style="width: 8%; height:4%;" />
+//                                <img src='.$tap_image.' style="width: 8%; height:4%;" />
+//                                <img src='.$parking_image.' style="width: 8%; height:4%;" />
+//                                <img src='.$picnic_image.' style="width: 8%; height:4%;" />
+//                                <img src='.$coffee_image.' style="width: 8%; height:4%;"/>
+//                                <img src='.$hospital_image.' style="width: 8%; height:4%;"/>
+//                            </fieldset>';
+//                                echo '</td>';
+//                                echo '</tr>';               
+                        
+                        echo '<section>';
+                        
+//                        echo '<a href = "description.php?no='.$row['no'].'" ><div><span class="image left" float="left"> <img src= "'.$row['img_url'].'" alt="" style="width: 100%; height:100%;"/> </span></div>';
+                        echo '<div class="row">
+                                <div class="6u 12u(3)">   
+                                 <a href = "description.php?no='.$row['no'].'" ><div><img src= "'.$row['img_url'].'" alt="" style="width: 120%; height:120%;"/></div> 
+                                </div>
+                                
+                          <div class="9u 12u(3)"> 
+                                ';
+//                        echo '<fieldset>
+//                                <img src='.$toilet_image.' style="width: 8%; height:4%;" />
+//                                <img src='.$bin_image.' style="width: 8%; height:4%;" />
+//                                <img src='.$tap_image.' style="width: 8%; height:4%;" />
+//                                <img src='.$parking_image.' style="width: 8%; height:4%;" />
+//                                <img src='.$picnic_image.' style="width: 8%; height:4%;" />
+//                                <img src='.$coffee_image.' style="width: 8%; height:4%;"/>
+//                                <img src='.$hospital_image.' style="width: 8%; height:4%;"/>
+//                            </fieldset>';
+//                        echo '</div>
+//                                </div>';
+//                        echo '<div class='. $id .' float="left" data-number='. $overallRate .'></div>';
+                        echo '<p style=" font-size:130%; font-weight:bold; margin-bottom:0"> '.$row['name'].'</p>';  
+                        echo '<p><i>'.$row['address'].'&nbsp&nbsp&nbsp&nbsp&nbsp Distance: ' . $distance . ' Km</i></p>'; 
+//                        echo '<div class='. $id .' float="left" data-number='. $overallRate .'></div>';                        
+                        echo '<fieldset>
+                                <img src='.$toilet_image.' style="width: 5%; height:2%;" />
+                                <img src='.$bin_image.' style="width: 5%; height:2%;" />
+                                <img src='.$tap_image.' style="width: 5%; height:2%;" />
+                                <img src='.$parking_image.' style="width: 5%; height:2%;" />
+                                <img src='.$picnic_image.' style="width: 5%; height:2%;" />
+                                <img src='.$coffee_image.' style="width: 5%; height:2%;"/>
+                                <img src='.$hospital_image.' style="width: 5%; height:2%;"/>
+                            </fieldset>';
+                        echo '<hr width = "80%" >';
+//                        echo '<p><i> Distance: ' . $distance . ' Km</i></p>';
+                        echo '</section>';
+                        
                     }
+                    echo '</table>';
                     /*
                      * Calculate distance between two locations
                      * $lat1  latitude of the first location

@@ -32,11 +32,8 @@
                         <option value="Bellarine Peninsula">Bellarine Peninsula</option>
                         <option value="Apolo Bay">Great Ocean Road</option>
                     </select>
-
-
                 </div>
                 <div class="4u 12u$(medium)">
-
                     <!--add the drop down list --facility -->
                     <center> <font color=#c34e22 size="5" face ="impact">Facilities </font></center>
                     <select id="facility" class="selectpicker form-control" multiple title="Please select facilities">
