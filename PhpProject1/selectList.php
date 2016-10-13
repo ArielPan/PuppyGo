@@ -13,7 +13,7 @@
 
                 <header class="major">
                     <h2>Dog-friendly beaches list</h2>
-                    <p>This list shows all the dog-friendly beaches in Victoria based on your preferences, as well as the distance to current location. Feel free to click on the beach you would like to explore.</p>
+                    <p>This list shows all the dog-friendly beaches in Victoria based on your preferences, as well as the distance from current location. Please click on the beach you would like to explore.</p>
                 </header>  
                 <form>
                     <?php
@@ -157,37 +157,14 @@
                         $id = 'star';
                         $imgF ='image left';
                         $dis = distance($lat, $long, $beachLat, $beachLong, "K");
-                        $distance = round($dis, 2);
-                        
-//                                echo '<tr>';
-//                                echo '<td align="left"valign="bottom">';
-//                                echo '<a href = "description.php?no='.$row['no'].'"> ';
-//                                echo '<div><img src= "'.$row['img_url'].'" alt="" style="width: 80%; height:80%;"/></div>';
-//                                echo '</td>';
-//                                echo '<td align="left" valign="top">';
-//                                echo '<a href = "description.php?no='.$row['no'].'"> ';
-//                                echo '<p style=" font-size:130%; font-weight:bold; margin-bottom:0"> '.$row['name'].'</p>';
-//                                echo '<p><i>'.$row['address'].'Distance: ' . $distance . ' Km</i></p>';
-//                                echo '<div class='. $id .' float="left" data-number='. $overallRate .'></div>';
-//                                echo '<fieldset>
-//                                <img src='.$toilet_image.' style="width: 8%; height:4%;" />
-//                                <img src='.$bin_image.' style="width: 8%; height:4%;" />
-//                                <img src='.$tap_image.' style="width: 8%; height:4%;" />
-//                                <img src='.$parking_image.' style="width: 8%; height:4%;" />
-//                                <img src='.$picnic_image.' style="width: 8%; height:4%;" />
-//                                <img src='.$coffee_image.' style="width: 8%; height:4%;"/>
-//                                <img src='.$hospital_image.' style="width: 8%; height:4%;"/>
-//                            </fieldset>';
-//                                echo '</td>';
-//                                echo '</tr>';               
-                        
+                        $distance = round($dis, 2);                                       
                         echo '<section>';
                         
 //                        echo '<a href = "description.php?no='.$row['no'].'" ><div><span class="image left" float="left"> <img src= "'.$row['img_url'].'" alt="" style="width: 100%; height:100%;"/> </span></div>';
                         echo '<div class="row">
                                 <div class="6u 12u(3)">   
                                  <a href = "description.php?no='.$row['no'].'" ><div><img src= "'.$row['img_url'].'" alt="" style="width: 120%; height:120%;"/></div> 
-                                </div>
+                                </a></div>
                                 
                           <div class="9u 12u(3)"> 
                                 ';
@@ -203,17 +180,17 @@
 //                        echo '</div>
 //                                </div>';
 //                        echo '<div class='. $id .' float="left" data-number='. $overallRate .'></div>';
-                        echo '<p style=" font-size:130%; font-weight:bold; margin-bottom:0"> '.$row['name'].'</p>';  
+                        echo '<a href = "description.php?no='.$row['no'].'" ><p style=" font-size:130%; font-weight:bold; margin-bottom:0"> '.$row['name'].'</p></a>';  
                         echo '<p><i>'.$row['address'].'&nbsp&nbsp&nbsp&nbsp&nbsp Distance: ' . $distance . ' Km</i></p>'; 
 //                        echo '<div class='. $id .' float="left" data-number='. $overallRate .'></div>';                        
                         echo '<fieldset>
-                                <img src='.$toilet_image.' style="width: 5%; height:2%;" />
-                                <img src='.$bin_image.' style="width: 5%; height:2%;" />
-                                <img src='.$tap_image.' style="width: 5%; height:2%;" />
-                                <img src='.$parking_image.' style="width: 5%; height:2%;" />
-                                <img src='.$picnic_image.' style="width: 5%; height:2%;" />
-                                <img src='.$coffee_image.' style="width: 5%; height:2%;"/>
-                                <img src='.$hospital_image.' style="width: 5%; height:2%;"/>
+                                <img src='.$toilet_image.' style="width: 5%; height:2%;" title="toilet" />
+                                <img src='.$bin_image.' style="width: 5%; height:2%;" title="bin"/>
+                                <img src='.$tap_image.' style="width: 5%; height:2%;" title="drink water for dog" />
+                                <img src='.$parking_image.' style="width: 5%; height:2%;" title="parking lot" />
+                                <img src='.$picnic_image.' style="width: 5%; height:2%;" title="picnic"/>
+                                <img src='.$coffee_image.' style="width: 5%; height:2%;"title="dog-friendly cafe"/>
+                                <img src='.$hospital_image.' style="width: 5%; height:2%;" title="vet"/>
                             </fieldset>';
                         echo '<hr width = "80%" >';
 //                        echo '<p><i> Distance: ' . $distance . ' Km</i></p>';

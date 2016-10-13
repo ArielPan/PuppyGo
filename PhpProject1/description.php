@@ -401,11 +401,11 @@
             <div class="3u 12u$(small)">
         <select id="hint1">
         <option value=""></option>
-        <option value="bad">bad</option>
-        <option value="poor">poor</option>
-        <option value="regular">regular</option>
-        <option value="good">good</option>
-        <option value="gorgeous">gorgeous</option>
+        <option value="bad">Bad</option>
+        <option value="poor">Poor</option>
+        <option value="regular">Regular</option>
+        <option value="good">Good</option>
+        <option value="gorgeous">Gorgeous</option>
       </select>
             </div>
         </div>
@@ -419,11 +419,11 @@
             <div class="3u 12u$(small)">
         <select id="hint2">
         <option value=""></option>
-        <option value="bad">dirty</option>
-        <option value="poor">decent</option>
-        <option value="regular">clean</option>
-        <option value="good">very clean</option>
-        <option value="gorgeous">spotless</option>
+        <option value="bad">Dirty</option>
+        <option value="poor">Decent</option>
+        <option value="regular">Clean</option>
+        <option value="good">Very clean</option>
+        <option value="gorgeous">Spotless</option>
       </select>
             </div>
         </div>
@@ -437,11 +437,11 @@
             <div class="3u 12u$(small)">
         <select id="hint3">
         <option value=""></option>
-        <option value="bad">insufficient</option>
-        <option value="poor">fair</option>
-        <option value="regular">sufficient</option>
-        <option value="good">abundant</option>
-        <option value="gorgeous">plentiful</option>
+        <option value="bad">Insufficient</option>
+        <option value="poor">Fair</option>
+        <option value="regular">Sufficient</option>
+        <option value="good">Abundant</option>
+        <option value="gorgeous">Plentiful</option>
       </select>
             </div>
         </div>
@@ -455,11 +455,11 @@
             <div class="3u 12u$(small)">
         <select id="hint4">
         <option value=""></option>
-        <option value="bad">unsafe</option>
-        <option value="poor">safe</option>
-        <option value="regular">very safe</option>
-        <option value="good">protected</option>
-        <option value="gorgeous">free from danger</option>
+        <option value="bad">Unsafe</option>
+        <option value="poor">Safe</option>
+        <option value="regular">Very safe</option>
+        <option value="good">Protected</option>
+        <option value="gorgeous">Free from danger</option>
       </select>
             </div>
         </div>
@@ -473,11 +473,11 @@
             <div class="3u 12u$(small)">
         <select id="hint5">
         <option value=""></option>
-        <option value="bad">unattractive</option>
-        <option value="poor">fine</option>
-        <option value="regular">attractive</option>
-        <option value="good">beautiful</option>
-        <option value="gorgeous">gorgeous</option>
+        <option value="bad">Unattractive</option>
+        <option value="poor">Fine</option>
+        <option value="regular">Attractive</option>
+        <option value="good">Beautiful</option>
+        <option value="gorgeous">Gorgeous</option>
     </select>
             </div>
         </div>

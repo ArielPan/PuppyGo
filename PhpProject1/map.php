@@ -36,8 +36,6 @@
                                 </select>
                             </div>
                         </div>
-                        <div> 
-                        </div>
                         <button class="button small" id="btnSearch">Show</button>
                     </div>
                 </div>

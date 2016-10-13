@@ -2,7 +2,7 @@ var map;
 var markers = [];
 var infowindow;
 var address;
-var pyrmont = {lat: -37.925, lng: 145.020}; // Victoria center location
+var pyrmont = {lat: -38.225, lng: 144.900}; // Victoria center location
 var locationList = new Array();
 
 function initMap() {

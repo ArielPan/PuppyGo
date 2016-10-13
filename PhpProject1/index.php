@@ -5,19 +5,15 @@
         include 'header.php';
 ?>    
     <script src="js/distance.js"></script>
-<!--    <link rel="stylesheet" href="css/button.css" />        -->
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
-    <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="js/indexjs.js"></script>
     <body>
     <!-- Banner -->
     
-    <section id="banner" >
-         
+    <section id="banner" >        
         <div clas='container'>
             <h2>Look for dog-friendly beach</h2>
             <div class="row 200%" >
@@ -36,26 +32,26 @@
                 <div class="4u 12u$(medium)">
                     <!--add the drop down list --facility -->
                     <center> <font color=#c34e22 size="5" face ="impact">Facilities </font></center>
-                    <select id="facility" class="selectpicker form-control" multiple title="Please select facilities">
-                        <option value="toilet">toilet</option>
-                        <option value="bin">bin</option>
-                        <option value="waterspot">waterspot</option>
-                        <option value="parking">parking</option>
-                        <option value="cafe">cafe</option>
-                        <option value="clinic">clinic</option>
-                        <option value="bbq">bbq</option>
+                    <select id="facility" class="selectpicker"data-actions-box="true" multiple title="Please select facilities" data-width="80%" data-selected-text-format="count > 4">
+                        <option data-content="<img src='images/facility/toilet.png' style='width: 6%; height:4%;'/>&nbsp&nbsp; Toilet"value="toilet">Toilet</option>
+                        <option data-content="<img src='images/facility/bin.png' style='width: 6%; height:4%;'/>&nbsp&nbsp; Bin"value="toilet">Bin</option>
+                        <option data-content="<img src='images/facility/tap.png' style='width: 6%; height:4%;'/>&nbsp&nbsp; DrinkWater"value="toilet">DrinkWater</option>
+                        <option data-content="<img src='images/facility/parking.png' style='width: 6%; height:4%;'/>&nbsp&nbsp; Parking"value="toilet">Parking</option>
+                        <option data-content="<img src='images/facility/coffee-cup.png' style='width: 6%; height:4%;'/>&nbsp&nbsp; Cafe"value="toilet">Cafe</option>
+                        <option data-content="<img src='images/facility/hospital.png' style='width: 6%; height:4%;'/>&nbsp&nbsp; Vet"value="toilet">Vet</option>
+                        <option data-content="<img src='images/facility/picnic.png' style='width: 6%; height:4%;'/>&nbsp&nbsp; BBQ"value="toilet">BBQ</option>
                     </select>
 
                 </div>
                 <div class="4u 12u$(medium)">
                     <!--add the drop down list --sport -->
                     <center><font color=#c34e22 size="5" face ="impact">Activities</font></center>
-                    <select id="sport" class="selectpicker form-control" multiple data-max-options="3" title="Please select activities">
-                        <option value="frisbee">frisbee</option>
-                        <option value="sand_volleyball">sand volleyball</option>
-                        <option value="sand_soccer">sand soccer</option>
-                        <option value="swimming">swimming</option>
-                        <option value="surfing">surfing</option>
+                    <select id="sport" class="selectpicker form-control" multiple data-max-options="3" title="Please select activities" data-width="80%">
+                        <option value="frisbee">Frisbee</option>
+                        <option value="sand_volleyball">Sand Volleyball</option>
+                        <option value="sand_soccer">Sand Soccer</option>
+                        <option value="swimming">Swimming</option>
+                        <option value="surfing">Surfing</option>
                     </select>
 
                 </div>

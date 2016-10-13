@@ -25,7 +25,7 @@
 						<div class="4u$ 12u$(medium)">
 							<ul class="icons">
 								<li>
-                                                                    <img src="images/teamLogo.png" alt="" style="width: 45%; height:30%; "/>
+                                                                    <img src="images/teamLogo.png" alt="" style="width: 50%; height:35%; "/>
 								</li>
 							</ul>
 						</div>

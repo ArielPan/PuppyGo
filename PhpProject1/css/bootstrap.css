@@ -2725,6 +2725,8 @@ select[multiple].input-sm {
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
+  background: #c34e22;
+  
 }
 .form-group-sm select.form-control {
   height: 30px;
