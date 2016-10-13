@@ -20,7 +20,7 @@
                 <!-- add three drop list here-->
                 <div class="4u 12u$(medium)">
                     <center>       
-                    <font color=#c34e22 size="5" face ="impact">Suburb</font></center>
+                    <font color=#0040ff size="5" face ="impact">Suburb</font></center>
                     <select id="Suburb" class="selectpicker" title="Please select a suburb" >
                         <option value="Melbourne Suburbs">Melbourne Suburbs</option>
                         <option value="Mornington Peninsula">Mornington Peninsula</option>
@@ -31,11 +31,11 @@
                 </div>
                 <div class="4u 12u$(medium)">
                     <!--add the drop down list --facility -->
-                    <center> <font color=#c34e22 size="5" face ="impact">Facilities </font></center>
+                    <center> <font color=#0040ff size="5" face ="impact">Facilities </font></center>
                     <select id="facility" class="selectpicker"data-actions-box="true" multiple title="Please select facilities" data-width="80%" data-selected-text-format="count > 4">
                         <option data-content="<img src='images/facility/toilet.png' style='width: 6%; height:4%;'/>&nbsp&nbsp; Toilet"value="toilet">Toilet</option>
                         <option data-content="<img src='images/facility/bin.png' style='width: 6%; height:4%;'/>&nbsp&nbsp; Bin"value="toilet">Bin</option>
-                        <option data-content="<img src='images/facility/tap.png' style='width: 6%; height:4%;'/>&nbsp&nbsp; DrinkWater"value="toilet">DrinkWater</option>
+                        <option data-content="<img src='images/facility/tap.png' style='width: 6%; height:4%;'/>&nbsp&nbsp; WaterSupply"value="toilet">DrinkWater</option>
                         <option data-content="<img src='images/facility/parking.png' style='width: 6%; height:4%;'/>&nbsp&nbsp; Parking"value="toilet">Parking</option>
                         <option data-content="<img src='images/facility/coffee-cup.png' style='width: 6%; height:4%;'/>&nbsp&nbsp; Cafe"value="toilet">Cafe</option>
                         <option data-content="<img src='images/facility/hospital.png' style='width: 6%; height:4%;'/>&nbsp&nbsp; Vet"value="toilet">Vet</option>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="4u 12u$(medium)">
                     <!--add the drop down list --sport -->
-                    <center><font color=#c34e22 size="5" face ="impact">Activities</font></center>
+                    <center><font color=#0040ff size="5" face ="impact">Activities</font></center>
                     <select id="sport" class="selectpicker form-control" multiple data-max-options="3" title="Please select activities" data-width="80%">
                         <option value="frisbee">Frisbee</option>
                         <option value="sand_volleyball">Sand Volleyball</option>
